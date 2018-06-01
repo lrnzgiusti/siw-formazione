@@ -1,7 +1,9 @@
 package it.uniroma3.siw.model;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+@Entity
 public class ResponsabileCentro extends Responsabile
 {
 	@OneToOne

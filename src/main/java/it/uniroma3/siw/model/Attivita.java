@@ -22,7 +22,7 @@ public class Attivita
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String nome;
+	private String nomeAttivita;
 	private Date dataAttivita;
 	
 	@ManyToMany
@@ -33,7 +33,7 @@ public class Attivita
 	
 	public Attivita(String nome, Date data)
 	{
-		this.nome = nome;
+		this.nomeAttivita = nome;
 		this.dataAttivita = data;
 	}
 
@@ -53,12 +53,12 @@ public class Attivita
 
 	public String getNome()
 	{
-		return nome;
+		return nomeAttivita;
 	}
 
 	public void setNome(String nome)
 	{
-		this.nome = nome;
+		this.nomeAttivita = nome;
 	}
 
 	public Date getData()

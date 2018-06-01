@@ -36,7 +36,7 @@ public class Centro
 	private List<Attivita> attivita;
 	
 	@OneToOne(mappedBy = "centro")
-	private ResponsabileCentro responsabile;
+	private ResponsabileCentro responsabileCentro;
 	
 	public Centro(String nome, String email, Number telefono, Integer capienzaMax)
 	{

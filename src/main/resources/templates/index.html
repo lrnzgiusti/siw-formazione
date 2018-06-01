@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SiW - Formazione</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello' + '!'" />
+    <a th:href="@{/newAllievo}">Inserisci un nuovo allievo</a> <br>
+    <a th:href="@{/newCentro}">Inserisci un nuovo centro</a> <br>
+    <a th:href="@{/newCategoria}">Inserisci una nuova categoria</a> <br>
+    <a th:href="@{/assocCentroCategoria}">Associa centro a categoria</a> <br>
+    <a th:href="@{/showCategorie}">Mostra tutte le categorie</a> <br>
+    <a th:href="@{/showCategorieDiCentro}">Mostra tutte le categorie di un centro</a> <br>
+    <a th:href="@{/showAllieviAttivita}">Mostra gli allievi di un'attività</a>
+</body>
+</html>

@@ -25,25 +25,25 @@ public class Allievo
 	private String cognome;
 	private String email;
 	private Number telefono;
-	private Date data_di_nascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar
-	private String luogo_di_nascita;
+	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar
+	private String luogoNascita;
 	
 	@ManyToMany(mappedBy = "allievi")
-	private List<Attivita> attività;
+	private List<Attivita> attivita;
 	
 	public Allievo()
 	{
 	}
 	
-	public Allievo(String nome, String cognome, String email, Number telefono, Date data_di_nascita,
-			String luogo_di_nascita)
+	public Allievo(String nome, String cognome, String email, Number telefono, Date dataNascita,
+			String luogoNascita)
 	{
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
 		this.telefono = telefono;
-		this.data_di_nascita = data_di_nascita;
-		this.luogo_di_nascita = luogo_di_nascita;
+		this.dataNascita = dataNascita;
+		this.luogoNascita = luogoNascita;
 	}
 
 	public Long getId()
@@ -96,33 +96,33 @@ public class Allievo
 		this.telefono = telefono;
 	}
 
-	public Date getData_di_nascita()
+	public Date getDataNascita()
 	{
-		return data_di_nascita;
+		return dataNascita;
 	}
 
-	public void setData_di_nascita(Date data_di_nascita)
+	public void setDataNascita(Date dataNascita)
 	{
-		this.data_di_nascita = data_di_nascita;
+		this.dataNascita = dataNascita;
 	}
 
-	public String getLuogo_di_nascita()
+	public String getLuogoNascita()
 	{
-		return luogo_di_nascita;
+		return luogoNascita;
 	}
 
-	public void setLuogo_di_nascita(String luogo_di_nascita)
+	public void setLuogoNascita(String luogoNascita)
 	{
-		this.luogo_di_nascita = luogo_di_nascita;
+		this.luogoNascita = luogoNascita;
 	}
 
-	public List<Attivita> getAttività()
+	public List<Attivita> getAttivita()
 	{
-		return attività;
+		return attivita;
 	}
 
-	public void setAttività(List<Attivita> attività)
+	public void setAttivita(List<Attivita> attivita)
 	{
-		this.attività = attività;
+		this.attivita = attivita;
 	}
 }

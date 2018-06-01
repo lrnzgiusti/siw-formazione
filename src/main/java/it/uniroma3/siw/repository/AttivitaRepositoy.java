@@ -14,5 +14,5 @@ public interface AttivitaRepositoy extends CrudRepository<Attivita, Long>
 	
 	public List<Attivita> findByDataAttivita(Date dataAttivita);
 	
-	public List<Allievo> findAllAllievi();
+	public List<Allievo> findAllAllievi(Long idAttivita);
 }

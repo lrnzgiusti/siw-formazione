@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.lang.NonNull;
+
 /**
  * 
  * @author Lorenzo Giusti, Jacopo Grifoni, Silvio Severino
@@ -22,7 +24,10 @@ public class Attivita
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NonNull
 	private String nomeAttivita;
+	
+	@NonNull
 	private Date dataAttivita;
 	
 	@ManyToMany
@@ -30,54 +35,51 @@ public class Attivita
 	
 	@ManyToOne
 	private CategoriaAttivita categoria;
+
+	public Attivita(String nomeAttivita, Date dataAttivita, List<Allievo> allievi, CategoriaAttivita categoria) {
+		this.nomeAttivita = nomeAttivita;
+		this.dataAttivita = dataAttivita;
+		this.allievi = allievi;
+		this.categoria = categoria;
+	}
+
+	public Attivita(String nomeAttivita, Date dataAttivita) {
+		this.nomeAttivita = nomeAttivita;
+		this.dataAttivita = dataAttivita;
+	}
 	
-	public Attivita(String nome, Date data)
-	{
-		this.nomeAttivita = nome;
-		this.dataAttivita = data;
-	}
-
 	public Attivita()
-	{
-	}
+	{}
 
-	public long getId()
-	{
-		return id;
-	}
-
-	public void setId(long id)
-	{
-		this.id = id;
-	}
-
-	public String getNome()
-	{
+	public String getNomeAttivita() {
 		return nomeAttivita;
 	}
 
-	public void setNome(String nome)
-	{
-		this.nomeAttivita = nome;
+	public void setNomeAttivita(String nomeAttivita) {
+		this.nomeAttivita = nomeAttivita;
 	}
 
-	public Date getData()
-	{
+	public Date getDataAttivita() {
 		return dataAttivita;
 	}
 
-	public void setData(Date data)
-	{
-		this.dataAttivita = data;
+	public void setDataAttivita(Date dataAttivita) {
+		this.dataAttivita = dataAttivita;
 	}
 
-	public List<Allievo> getAllievi()
-	{
+	public List<Allievo> getAllievi() {
 		return allievi;
 	}
 
-	public void setAllievi(List<Allievo> allievi)
-	{
+	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
+	}
+
+	public CategoriaAttivita getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaAttivita categoria) {
+		this.categoria = categoria;
 	}
 }

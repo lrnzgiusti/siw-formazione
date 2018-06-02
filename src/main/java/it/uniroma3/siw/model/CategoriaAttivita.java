@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 public class CategoriaAttivita
 {
@@ -16,37 +18,44 @@ public class CategoriaAttivita
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String nome;
+	@NonNull
+	private String nomeAttivita;
+	
+	private String descrizioneAttivita;
 	
 	@OneToMany
-	private List<Attivita> attività;
+	private List<Attivita> attivita;
 	
-	public CategoriaAttivita(String nome)
+	public CategoriaAttivita(String nomeAttivita)
 	{
-		this.nome = nome;
+		this.nomeAttivita = nomeAttivita;
 	}
 
 	public CategoriaAttivita()
 	{
 	}
 
-	public long getId()
-	{
-		return id;
+	public String getNomeAttivita() {
+		return nomeAttivita;
 	}
 
-	public void setId(Long id)
-	{
-		this.id = id;
+	public void setNomeAttivita(String nomeAttivita) {
+		this.nomeAttivita = nomeAttivita;
 	}
 
-	public String getNome()
-	{
-		return nome;
+	public String getDescrizioneAttivita() {
+		return descrizioneAttivita;
 	}
 
-	public void setNome(String nome)
-	{
-		this.nome = nome;
+	public void setDescrizioneAttivita(String descrizioneAttivita) {
+		this.descrizioneAttivita = descrizioneAttivita;
+	}
+
+	public List<Attivita> getAttivita() {
+		return attivita;
+	}
+
+	public void setAttivita(List<Attivita> attivita) {
+		this.attivita = attivita;
 	}
 }

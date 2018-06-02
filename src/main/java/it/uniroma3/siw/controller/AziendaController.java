@@ -25,13 +25,15 @@ public class AziendaController
 	@Autowired
 	private CentroService centroService;
 
-	@RequestMapping("/newCentro")
+	@RequestMapping("/addCentro")
 	public String addCentro(Model model)
 	{
+		System.out.println("entro");
 		model.addAttribute("centro", new Centro());
 		return "formCentro";
 	}
 
+	
 	@RequestMapping(value = "/centro/{id}", method = RequestMethod.GET)
 	public String getCentro(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("centro", this.centroService.findById(id));

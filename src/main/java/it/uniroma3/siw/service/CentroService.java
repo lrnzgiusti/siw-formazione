@@ -48,9 +48,9 @@ public class CentroService
 
 	public boolean alreadyExists(Centro centro)
 	{
-		List<Centro> centri = this.centroRepository.findByNomeCentroAndEmailCentroAndTelefonoCentro(centro.getNome(), 
-																									centro.getEmail(), 
-																									centro.getTelefono());
+		List<Centro> centri = this.centroRepository.findByNomeCentroAndEmailCentroAndTelefonoCentro(centro.getNomeCentro(), 
+																									centro.getEmailCentro(), 
+																									centro.getTelefonoCentro());
 		if (centri.size() > 0)
 			return true;
 		else 

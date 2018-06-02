@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.lang.NonNull;
+
 /**
  * 
  * @author Lorenzo Giusti, Jacopo Grifoni, Silvio Severino
@@ -14,8 +16,10 @@ import javax.persistence.OneToOne;
 
 public class Azienda
 {
-	
+	@NonNull
 	private String nomeAzienda;
+	
+	@NonNull
 	private String indirizzoAzienda;
 	
 	private static Azienda single_instance = null;
@@ -35,6 +39,23 @@ public class Azienda
 	@OneToOne
 	private Responsabile responsabile;
 	
+	
+	
+	private Azienda(String nomeAzienda, String indirizzoAzienda, List<Allievo> allievi, List<Centro> centri,
+			List<CategoriaAttivita> categorieAttivita, Responsabile responsabile) {
+		this.nomeAzienda = nomeAzienda;
+		this.indirizzoAzienda = indirizzoAzienda;
+		this.allievi = allievi;
+		this.centri = centri;
+		this.categorieAttivita = categorieAttivita;
+		this.responsabile = responsabile;
+	}
+	
+	private Azienda(String nomeAzienda, String indirizzoAzienda) {
+		this.nomeAzienda = nomeAzienda;
+		this.indirizzoAzienda = indirizzoAzienda;
+	}
+
 	private Azienda()
 	{
 	}
@@ -46,24 +67,51 @@ public class Azienda
 		return single_instance;
 	}
 
-	public String getNome()
-	{
+	public String getNomeAzienda() {
 		return nomeAzienda;
 	}
 
-	public void setNome(String nome)
-	{
-		this.nomeAzienda = nome;
+	public void setNomeAzienda(String nomeAzienda) {
+		this.nomeAzienda = nomeAzienda;
 	}
 
-	public String getIndirizzo()
-	{
+	public String getIndirizzoAzienda() {
 		return indirizzoAzienda;
 	}
 
-	public void setIndirizzo(String indirizzo)
-	{
-		this.indirizzoAzienda = indirizzo;
+	public void setIndirizzoAzienda(String indirizzoAzienda) {
+		this.indirizzoAzienda = indirizzoAzienda;
 	}
 
+	public List<Allievo> getAllievi() {
+		return allievi;
+	}
+
+	public void setAllievi(List<Allievo> allievi) {
+		this.allievi = allievi;
+	}
+
+	public List<Centro> getCentri() {
+		return centri;
+	}
+
+	public void setCentri(List<Centro> centri) {
+		this.centri = centri;
+	}
+
+	public List<CategoriaAttivita> getCategorieAttivita() {
+		return categorieAttivita;
+	}
+
+	public void setCategorieAttivita(List<CategoriaAttivita> categorieAttivita) {
+		this.categorieAttivita = categorieAttivita;
+	}
+
+	public Responsabile getResponsabile() {
+		return responsabile;
+	}
+
+	public void setResponsabile(Responsabile responsabile) {
+		this.responsabile = responsabile;
+	}
 }

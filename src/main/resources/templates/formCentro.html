@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns="http://www.w3.org/1999/html">
-<head>
+<head lang="it">
 <meta charset="UTF-8">
 </head>
 <body>
@@ -9,32 +9,24 @@
 		<h4 class="title">Inserisci nuovo centro</h4>
 		<p th:text="${exists}"></p>
 	</div>
-	<form th:action="@{/centro}" method="POST" th:object="${centro}">
-		<table>
+	 <form th:action="@{/centro}" method="POST" th:object="${centro}">
+		 <table>
 			<tr>
 				<td>Nome Centro:</td>
-				<td><input type="text" th:field="*{nomeCentro}" /></td>
-				 <td th:if="${#fields.hasErrors('nomeCentro')}" th:errors="*{nomeCentro}"></td> 
-			</tr>		
+				 <td><input type="text" th:field="*{nomeCentro}" /></td>
+				<!-- <td th:if="${#fields.hasErrors('nomeCentro')}" th:errors="*{nomeCentro}"></td>--> 
+			</tr>	
+			
 			<tr>
 				<td>Email Centro:</td>
-				<td><input type="text" th:field="*{emailCentro}" /></td>
-				<td th:if="${#fields.hasErrors('emailCentro')}" th:errors="*{emailCentro}"></td>
+					<!-- <td><input type="text" th:field="*{emailCentro}" /></td>
+				<td th:if="${#fields.hasErrors('emailCentro')}" th:errors="*{emailCentro}"></td>-->
 			</tr>
-			<tr>
-				<td>Telefono Centro:</td>
-				<td><input type="text" th:field="*{telefonoCentro}" /></td>
-				 <td th:if="${#fields.hasErrors('telefonoCentro')}" th:errors="*{telefonoCentro}"></td> 
-			</tr>		
-			<tr>
-				<td>CapienzaMax Centro:</td>
-				<td><input type="text" th:field="*{capienzaMaxCentro}" /></td>
-				<td th:if="${#fields.hasErrors('capienzaMaxCentro')}" th:errors="*{capienzaMaxCentro}"></td>
-			</tr>
+			
 			<tr>
 				<td><button type="submit">Submit</button></td>
 			</tr>
-		</table>
-	</form>
+		</table> 
+	</form> 
 </body>
 </html>

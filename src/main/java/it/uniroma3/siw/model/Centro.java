@@ -2,6 +2,7 @@ package it.uniroma3.siw.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +23,16 @@ public class Centro
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(nullable=false)
 	private String nomeCentro;
+	
+	@Column(nullable=false)
 	private String emailCentro;
+	
+	@Column(nullable=false)
 	private String telefonoCentro;
+	
+	@Column(nullable=false)
 	private Integer capienzaMaxCentro;
 	
 	@OneToMany
@@ -37,66 +45,85 @@ public class Centro
 	
 	@OneToOne(mappedBy = "centro")
 	private ResponsabileCentro responsabileCentro;
+
+	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro,
+			List<CategoriaAttivita> categorieDelCentro, List<Attivita> attivita,
+			ResponsabileCentro responsabileCentro)
+	{
+		this.nomeCentro = nomeCentro;
+		this.emailCentro = emailCentro;
+		this.telefonoCentro = telefonoCentro;
+		this.capienzaMaxCentro = capienzaMaxCentro;
+		this.categorieDelCentro = categorieDelCentro;
+		this.attivita = attivita;
+		this.responsabileCentro = responsabileCentro;
+	}
+
+	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro)
+	{
+		this.nomeCentro = nomeCentro;
+		this.emailCentro = emailCentro;
+		this.telefonoCentro = telefonoCentro;
+		this.capienzaMaxCentro = capienzaMaxCentro;
+	}
 	
-	public Centro(String nome, String email, String telefono, Integer capienzaMax)
-	{
-		this.nomeCentro = nome;
-		this.emailCentro = email;
-		this.telefonoCentro = telefono;
-		this.capienzaMaxCentro = capienzaMax;
-	}
-	
-	public Centro()
+	public Centro() 
 	{
 	}
 
-	public long getId()
-	{
-		return id;
-	}
-
-	public void setId(Long id)
-	{
-		this.id = id;
-	}
-
-	public String getNome()
-	{
+	public String getNomeCentro() {
 		return nomeCentro;
 	}
 
-	public void setNome(String nome)
-	{
-		this.nomeCentro = nome;
+	public void setNomeCentro(String nomeCentro) {
+		this.nomeCentro = nomeCentro;
 	}
 
-	public String getEmail()
-	{
+	public String getEmailCentro() {
 		return emailCentro;
 	}
 
-	public void setEmail(String email)
-	{
-		this.emailCentro = email;
+	public void setEmailCentro(String emailCentro) {
+		this.emailCentro = emailCentro;
 	}
 
-	public String getTelefono()
-	{
+	public String getTelefonoCentro() {
 		return telefonoCentro;
 	}
 
-	public void setTelefono(String telefono)
-	{
-		this.telefonoCentro = telefono;
+	public void setTelefonoCentro(String telefonoCentro) {
+		this.telefonoCentro = telefonoCentro;
 	}
 
-	public Integer getCapienzaMax()
-	{
+	public Integer getCapienzaMaxCentro() {
 		return capienzaMaxCentro;
 	}
 
-	public void setCapienzaMax(Integer capienzaMax)
-	{
-		this.capienzaMaxCentro = capienzaMax;
+	public void setCapienzaMaxCentro(Integer capienzaMaxCentro) {
+		this.capienzaMaxCentro = capienzaMaxCentro;
+	}
+
+	public List<CategoriaAttivita> getCategorieDelCentro() {
+		return categorieDelCentro;
+	}
+
+	public void setCategorieDelCentro(List<CategoriaAttivita> categorieDelCentro) {
+		this.categorieDelCentro = categorieDelCentro;
+	}
+
+	public List<Attivita> getAttivita() {
+		return attivita;
+	}
+
+	public void setAttivita(List<Attivita> attivita) {
+		this.attivita = attivita;
+	}
+
+	public ResponsabileCentro getResponsabileCentro() {
+		return responsabileCentro;
+	}
+
+	public void setResponsabileCentro(ResponsabileCentro responsabileCentro) {
+		this.responsabileCentro = responsabileCentro;
 	}
 }

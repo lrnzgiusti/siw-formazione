@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.springframework.lang.NonNull;
+
 /**
  * 
  * @author Lorenzo Giusti, Jacopo Grifoni, Silvio Severino
@@ -21,23 +23,28 @@ public class Allievo
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NonNull
 	private String nome;
+
+	@NonNull
 	private String cognome;
+	
+	@NonNull
 	private String email;
+	
+	@NonNull
 	private Number telefono;
+	
+	@NonNull
 	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar
+	
+	@NonNull
 	private String luogoNascita;
 	
 	@ManyToMany(mappedBy = "allievi")
 	private List<Attivita> attivita;
-	
-	public Allievo()
-	{
-	}
-	
-	public Allievo(String nome, String cognome, String email, Number telefono, Date dataNascita,
-			String luogoNascita)
-	{
+
+	public Allievo(String nome, String cognome, String email, Number telefono, Date dataNascita, String luogoNascita) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -45,84 +52,63 @@ public class Allievo
 		this.dataNascita = dataNascita;
 		this.luogoNascita = luogoNascita;
 	}
+	
+	public Allievo()
+	{}
 
-	public Long getId()
-	{
-		return id;
-	}
-
-	public void setId(Long id)
-	{
-		this.id = id;
-	}
-
-	public String getNome()
-	{
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome)
-	{
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getCognome()
-	{
+	public String getCognome() {
 		return cognome;
 	}
 
-	public void setCognome(String cognome)
-	{
+	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
 
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email)
-	{
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public Number getTelefono()
-	{
+	public Number getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Number telefono)
-	{
+	public void setTelefono(Number telefono) {
 		this.telefono = telefono;
 	}
 
-	public Date getDataNascita()
-	{
+	public Date getDataNascita() {
 		return dataNascita;
 	}
 
-	public void setDataNascita(Date dataNascita)
-	{
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 
-	public String getLuogoNascita()
-	{
+	public String getLuogoNascita() {
 		return luogoNascita;
 	}
 
-	public void setLuogoNascita(String luogoNascita)
-	{
+	public void setLuogoNascita(String luogoNascita) {
 		this.luogoNascita = luogoNascita;
 	}
 
-	public List<Attivita> getAttivita()
-	{
+	public List<Attivita> getAttivita() {
 		return attivita;
 	}
 
-	public void setAttivita(List<Attivita> attivita)
-	{
+	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
 	}
 }

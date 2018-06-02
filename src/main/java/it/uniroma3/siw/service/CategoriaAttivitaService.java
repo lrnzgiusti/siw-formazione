@@ -23,9 +23,9 @@ public class CategoriaAttivitaService
 		return this.categoriaAttivitaRepository.save(categoriaAttivita);
 	}
 	
-	public List<CategoriaAttivita> findByNome(String nome)
+	public List<CategoriaAttivita> findByNomeCategoriaAttivita(String nomeCategoriaAttivita)
 	{
-		return this.categoriaAttivitaRepository.findByNome(nome);
+		return this.categoriaAttivitaRepository.findByNomeCategoriaAttivita(nomeCategoriaAttivita);
 	}
 	
 	public List<CategoriaAttivita> findAll()

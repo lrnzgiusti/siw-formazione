@@ -8,5 +8,5 @@ import it.uniroma3.siw.model.CategoriaAttivita;
 
 public interface CategoriaAttivitaRepository extends CrudRepository<CategoriaAttivita, Long>
 {
-	public List<CategoriaAttivita> findByNome(String nome);
+	public List<CategoriaAttivita> findByNomeCategoriaAttivita(String nomeCategoriaAttivita);
 }

@@ -19,7 +19,7 @@ public class CategoriaAttivita
 	private Long id;
 	
 	@NonNull
-	private String nomeAttivita;
+	private String nomeCategoriaAttivita;
 	
 	private String descrizioneAttivita;
 	
@@ -28,7 +28,7 @@ public class CategoriaAttivita
 	
 	public CategoriaAttivita(String nomeAttivita)
 	{
-		this.nomeAttivita = nomeAttivita;
+		this.nomeCategoriaAttivita = nomeAttivita;
 	}
 
 	public CategoriaAttivita()
@@ -36,11 +36,11 @@ public class CategoriaAttivita
 	}
 
 	public String getNomeAttivita() {
-		return nomeAttivita;
+		return nomeCategoriaAttivita;
 	}
 
 	public void setNomeAttivita(String nomeAttivita) {
-		this.nomeAttivita = nomeAttivita;
+		this.nomeCategoriaAttivita = nomeAttivita;
 	}
 
 	public String getDescrizioneAttivita() {

@@ -28,7 +28,6 @@ public class AziendaController
 	@RequestMapping("/addCentro")
 	public String addCentro(Model model)
 	{
-		System.out.println("entro");
 		model.addAttribute("centro", new Centro());
 		return "formCentro";
 	}
@@ -41,7 +40,7 @@ public class AziendaController
 	}
 
 	@RequestMapping(value = "/centro", method = RequestMethod.POST)
-	public String newCentro(@Valid @ModelAttribute("centro") Centro centro,
+	public String newCentro(@ModelAttribute("centro") Centro centro,
 			Model model, BindingResult bindingResult)
 	{
 		this.centroValidator.validate(centro, bindingResult);

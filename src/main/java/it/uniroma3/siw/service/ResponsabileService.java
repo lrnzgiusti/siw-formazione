@@ -22,14 +22,14 @@ public class ResponsabileService
 		return this.responsabileRepository.save(responsabile);
 	}
 	
-	public List<Responsabile> findByNome(String nome)
+	public List<Responsabile> findByNomeResponsabile(String nomeResponsabile)
 	{
-		return this.responsabileRepository.findByNome(nome);
+		return this.responsabileRepository.findByNomeResponsabile(nomeResponsabile);
 	}
 	
-	public List<Responsabile> findByCognome(String cognome)
+	public List<Responsabile> findByCognomeResponsabile(String cognomeResponsabile)
 	{
-		return this.responsabileRepository.findByCognome(cognome);
+		return this.responsabileRepository.findByCognomeResponsabile(cognomeResponsabile);
 	}
 	
 	public List<Responsabile> findAll()

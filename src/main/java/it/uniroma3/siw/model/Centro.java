@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 /**
  * 
@@ -125,5 +127,13 @@ public class Centro
 
 	public void setResponsabileCentro(ResponsabileCentro responsabileCentro) {
 		this.responsabileCentro = responsabileCentro;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

@@ -14,13 +14,25 @@
 			<tr>
 				<td>Nome Centro:</td>
 				 <td><input type="text" th:field="*{nomeCentro}" /></td>
-				<!-- <td th:if="${#fields.hasErrors('nomeCentro')}" th:errors="*{nomeCentro}"></td>--> 
+				 <td th:if="${#fields.hasErrors('nomeCentro')}" th:errors="*{nomeCentro}"></td>
 			</tr>	
 			
 			<tr>
 				<td>Email Centro:</td>
-					<!-- <td><input type="text" th:field="*{emailCentro}" /></td>
-				<td th:if="${#fields.hasErrors('emailCentro')}" th:errors="*{emailCentro}"></td>-->
+					<td><input type="text" th:field="*{emailCentro}" /></td>
+				<td th:if="${#fields.hasErrors('emailCentro')}" th:errors="*{emailCentro}"></td>
+			</tr>
+			
+			<tr>
+				<td>Telefono Centro:</td>
+					<td><input type="text" th:field="*{telefonoCentro}" /></td>
+				<td th:if="${#fields.hasErrors('telefonoCentro')}" th:errors="*{telefonoCentro}"></td>
+			</tr>
+			
+			<tr>
+				<td>Capienza Max Centro:</td>
+					<td><input type="number" th:field="*{capienzaMaxCentro}" /></td>
+				<td th:if="${#fields.hasErrors('capienzaMaxCentro')}" th:errors="*{capienzaMaxCentro}"></td>
 			</tr>
 			
 			<tr>

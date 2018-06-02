@@ -25,22 +25,30 @@ public class CategoriaAttivita
 	
 	@OneToMany
 	private List<Attivita> attivita;
-	
-	public CategoriaAttivita(String nomeAttivita)
-	{
-		this.nomeCategoriaAttivita = nomeAttivita;
+
+	public CategoriaAttivita(String nomeCategoriaAttivita, String descrizioneAttivita) {
+		this.nomeCategoriaAttivita = nomeCategoriaAttivita;
+		this.descrizioneAttivita = descrizioneAttivita;
 	}
 
-	public CategoriaAttivita()
+	public CategoriaAttivita() 
 	{
 	}
 
-	public String getNomeAttivita() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNomeCategoriaAttivita() {
 		return nomeCategoriaAttivita;
 	}
 
-	public void setNomeAttivita(String nomeAttivita) {
-		this.nomeCategoriaAttivita = nomeAttivita;
+	public void setNomeCategoriaAttivita(String nomeCategoriaAttivita) {
+		this.nomeCategoriaAttivita = nomeCategoriaAttivita;
 	}
 
 	public String getDescrizioneAttivita() {
@@ -58,4 +66,7 @@ public class CategoriaAttivita
 	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
 	}
+	
+	
+	
 }

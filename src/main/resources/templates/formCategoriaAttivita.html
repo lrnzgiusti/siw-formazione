@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head lang="it">
+<meta charset="UTF-8">
+</head>
+<body>
+	<div>
+		<h4 class="title">Inserisci Nuova Categoria Attivita</h4>
+		<p th:text="${exists}"></p>
+	</div>
+	 <form th:action="@{/categoriaAttivita}" method="POST" th:object="${categoriaAttivita}">
+		 <table>
+			<tr>
+				<td>Nome Categoria Attivita:</td>
+				 <td><input type="text" th:field="*{nomeCategoriaAttivita}" /></td>
+				 <td th:if="${#fields.hasErrors('nomeCategoriaAttivita')}" th:errors="*{nomeCategoriaAttivita}"></td>
+			</tr>	
+			
+			<tr>
+				<td>Descrizione Categoria Attivita</td>
+					<td><input type="text" th:field="*{descrizioneAttivita}" /></td>
+				<td th:if="${#fields.hasErrors('descrizioneAttivita')}" th:errors="*{descrizioneAttivita}"></td>
+			</tr>
+
+			<tr>
+				<td><button type="submit">Submit</button></td>
+			</tr>
+		</table> 
+	</form> 
+</body>
+</html>

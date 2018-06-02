@@ -40,4 +40,11 @@ public class CategoriaAttivitaService
 		else
 			return null;
 	}
+
+	public boolean alreadyExists(CategoriaAttivita categoriaAttivita) {
+		List<CategoriaAttivita> categorieAttivita = this.findByNomeCategoriaAttivita(categoriaAttivita.getNomeCategoriaAttivita());
+		if(categorieAttivita.size() > 0)
+			return true;
+		return false;
+	}
 }

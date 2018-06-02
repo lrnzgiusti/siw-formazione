@@ -24,7 +24,7 @@ public class Centro
 	
 	private String nomeCentro;
 	private String emailCentro;
-	private Number telefonoCentro;
+	private String telefonoCentro;
 	private Integer capienzaMaxCentro;
 	
 	@OneToMany
@@ -38,7 +38,7 @@ public class Centro
 	@OneToOne(mappedBy = "centro")
 	private ResponsabileCentro responsabileCentro;
 	
-	public Centro(String nome, String email, Number telefono, Integer capienzaMax)
+	public Centro(String nome, String email, String telefono, Integer capienzaMax)
 	{
 		this.nomeCentro = nome;
 		this.emailCentro = email;
@@ -80,12 +80,12 @@ public class Centro
 		this.emailCentro = email;
 	}
 
-	public Number getTelefono()
+	public String getTelefono()
 	{
 		return telefonoCentro;
 	}
 
-	public void setTelefono(Number telefono)
+	public void setTelefono(String telefono)
 	{
 		this.telefonoCentro = telefono;
 	}

@@ -11,8 +11,8 @@
 				<tr>
 					<th>Name</th>
 				</tr>
-				<tr th:each="customer : ${customers}">
-					<td><a th:href="@{'/customer' + '/' + ${customer.id}}"><span th:text="${customer.name}"></span></a></td>					
+				<tr th:each="centro : ${centri}">
+					<td><a th:href="@{'/centro' + '/' + ${centro.id}}"><span th:text="${centro.nomeCentro}"></span></a></td>					
                 </tr>
             </table>
    		</div>

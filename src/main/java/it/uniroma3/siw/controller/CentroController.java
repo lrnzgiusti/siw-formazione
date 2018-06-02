@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.controller.validator.CentroValidator;
+import it.uniroma3.siw.model.Azienda;
 import it.uniroma3.siw.model.Centro;
 import it.uniroma3.siw.service.CentroService;
 
@@ -51,7 +52,7 @@ public class CentroController
 			if(!bindingResult.hasErrors())
 			{
 				this.centroService.save(centro);
-			//	model.addAttribute("centri", this.centroService.findAll());
+				Azienda.getInstance().addCentro(centro);
 				return showCentri(model);
 			}
 		}

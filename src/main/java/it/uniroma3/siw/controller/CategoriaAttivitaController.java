@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.controller.validator.CategoriaAttivitaValidator;
+import it.uniroma3.siw.model.Azienda;
 import it.uniroma3.siw.model.CategoriaAttivita;
 import it.uniroma3.siw.service.CategoriaAttivitaService;
 
@@ -53,15 +54,15 @@ public class CategoriaAttivitaController
 			if(!bindingResult.hasErrors())
 			{
 				this.categoriaAttivitaService.save(categoriaAttivita);
-			//	model.addAttribute("categorieAttivita", this.categoriaAttivitaService.findAll());
-				return showCategoriaAttivita(model);
+				Azienda.getInstance().addCategoriaAttivita(categoriaAttivita);
+				return showCategorieAttivita(model);
 			}
 		}
 		return "formCategoriaAttivita";
 	}
 	
 	@RequestMapping("/showCategorieAttivita")
-	public String showCategoriaAttivita(Model model)
+	public String showCategorieAttivita(Model model)
 	{
 		model.addAttribute("categorieAttivita", this.categoriaAttivitaService.findAll());
 		return "listaCategorieAttivita";

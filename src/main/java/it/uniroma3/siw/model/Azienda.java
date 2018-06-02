@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.JoinColumn;
@@ -58,6 +59,9 @@ public class Azienda
 
 	private Azienda()
 	{
+		centri = new ArrayList<>();
+		allievi = new ArrayList<>();
+		categorieAttivita = new ArrayList<>();
 	}
 	
 	public static Azienda getInstance()
@@ -90,13 +94,23 @@ public class Azienda
 	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
 	}
+	
+	public void addAllievo(Allievo allievo)
+	{
+		this.allievi.add(allievo);
+	}
 
 	public List<Centro> getCentri() {
 		return centri;
 	}
-
+	
 	public void setCentri(List<Centro> centri) {
 		this.centri = centri;
+	}
+	
+	public void addCentro(Centro centro)
+	{
+		this.centri.add(centro);
 	}
 
 	public List<CategoriaAttivita> getCategorieAttivita() {
@@ -107,6 +121,11 @@ public class Azienda
 		this.categorieAttivita = categorieAttivita;
 	}
 
+	public void addCategoriaAttivita(CategoriaAttivita categoriaAttivita)
+	{
+		this.categorieAttivita.add(categoriaAttivita);
+	}
+	
 	public Responsabile getResponsabile() {
 		return responsabile;
 	}

@@ -33,7 +33,7 @@ public class Allievo
 	private String email;
 	
 	@NonNull
-	private Number telefono;
+	private String telefono;
 	
 	@NonNull
 	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar
@@ -44,7 +44,7 @@ public class Allievo
 	@ManyToMany(mappedBy = "allievi")
 	private List<Attivita> attivita;
 
-	public Allievo(String nome, String cognome, String email, Number telefono, Date dataNascita, String luogoNascita) {
+	public Allievo(String nome, String cognome, String email, String telefono, Date dataNascita, String luogoNascita) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -80,11 +80,11 @@ public class Allievo
 		this.email = email;
 	}
 
-	public Number getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Number telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -110,5 +110,13 @@ public class Allievo
 
 	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

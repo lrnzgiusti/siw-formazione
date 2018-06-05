@@ -54,10 +54,7 @@ public class AllievoService
 	public boolean alreadyExists(Allievo allievo)
 	{
 		List<Allievo> allievi = this.allievoRepository.findByNomeAndCognomeAndLuogoNascita(allievo.getNome(), allievo.getCognome(), allievo.getLuogoNascita());
-		if (allievi.size() > 0)
-			return true;
-		else 
-			return false;
+		return allievi.size() > 0;
 	}	
 
 }

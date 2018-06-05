@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.lang.NonNull;
 
@@ -28,6 +30,7 @@ public class Attivita
 	private String nomeAttivita;
 	
 	@NonNull
+	@Temporal (TemporalType.DATE)
 	private Date dataAttivita;
 	
 	@ManyToMany

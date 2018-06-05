@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.lang.NonNull;
 
@@ -36,7 +38,8 @@ public class Allievo
 	private String telefono;
 	
 	@NonNull
-	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar
+	@Temporal (TemporalType.DATE)
+	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar. Risolto con temporal
 	
 	@NonNull
 	private String luogoNascita;

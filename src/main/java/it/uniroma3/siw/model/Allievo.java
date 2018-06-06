@@ -3,6 +3,7 @@ package it.uniroma3.siw.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,18 +24,19 @@ public class Allievo
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	
-	@NonNull
+	@Column(nullable = false, name = "nome")	
 	private String nome;
 
-	@NonNull
+	@Column(nullable = false, name = "cognome")	
 	private String cognome;
 	
-	@NonNull
+	@Column(nullable = false, name = "email")
 	private String email;
 	
-	@NonNull
+	@Column(name = "telefono")
 	private String telefono;
 	
 	@NonNull

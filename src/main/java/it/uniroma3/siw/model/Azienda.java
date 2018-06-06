@@ -3,11 +3,10 @@ package it.uniroma3.siw.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import org.springframework.lang.NonNull;
 
 /**
  * 
@@ -17,10 +16,10 @@ import org.springframework.lang.NonNull;
 
 public class Azienda
 {
-	@NonNull
+	@Column(name = "nome")
 	private String nomeAzienda;
 	
-	@NonNull
+	@Column(name = "indirizzo")
 	private String indirizzoAzienda;
 	
 	private static Azienda single_instance = null;

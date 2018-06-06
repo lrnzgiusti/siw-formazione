@@ -2,13 +2,12 @@ package it.uniroma3.siw.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import org.springframework.lang.NonNull;
 
 @Entity
 public class CategoriaAttivita
@@ -18,9 +17,10 @@ public class CategoriaAttivita
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NonNull
+	@Column(nullable = false, name = "nome")
 	private String nomeCategoriaAttivita;
 	
+	@Column(name = "descrizione")
 	private String descrizioneAttivita;
 	
 	@OneToMany

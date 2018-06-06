@@ -16,10 +16,10 @@ import javax.persistence.OneToOne;
  * @author Lorenzo Giusti, Jacopo Grifoni, Silvio Severino
  *
  */
-//asas
 @Entity
 public class Centro
 {
+	//prova
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

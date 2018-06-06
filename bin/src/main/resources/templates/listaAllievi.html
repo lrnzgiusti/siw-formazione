@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Lista Categoria Attivita</title>
+</head>
+<body>
+    <div>
+    	<h4>Lista delle categorie</h4>
+		<div>
+			<table>
+				<tr>
+					<th>Nome categoria</th>
+				</tr>
+				<tr th:each="allievo : ${allievi}">
+					<td><a th:href="@{'/allievo' + '/' + ${allievo.id}}"><span th:text="${allievo.email}"></span></a></td>					
+                </tr>
+            </table>
+   		</div>
+    </div>
+</body>
+</html>
+

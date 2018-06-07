@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.Centro;
 import it.uniroma3.siw.repository.CentroRepository;
 
@@ -35,6 +36,11 @@ public class CentroService
 	public List<Centro> findAll()
 	{
 		return (List<Centro>) this.centroRepository.findAll();
+	}
+	
+	public List<Attivita> findAllAttivitaById(Long id)
+	{
+		return (List<Attivita>) this.centroRepository.findAllAttivitaById(id);
 	}
 	
 	public Centro findById(Long id) 

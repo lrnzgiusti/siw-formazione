@@ -1,5 +1,7 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.controller.validator.CentroValidator;
+import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.Azienda;
 import it.uniroma3.siw.model.Centro;
 import it.uniroma3.siw.service.CentroService;
@@ -64,6 +67,14 @@ public class CentroController
 	{
 		model.addAttribute("centri", this.centroService.findAll());
 		return "listaCentri";
+	}
+	
+	@RequestMapping(value = "/showAttivitaCentro/{id}", method = RequestMethod.GET)
+	public String showAttivitaCentro(@PathVariable("id") Long id, Model model)
+	{
+		Centro centro = this.centroService.findById(id);
+		List<Attivita> attivita = this.centroService.findAllAttivitaById(id);
+		return "";
 	}
 	
 }

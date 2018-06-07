@@ -1,25 +1,38 @@
 package it.uniroma3.siw.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.lang.NonNull;
-
 @Entity
-public abstract class Responsabile 
+public class Responsabile 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "matricola")
 	private Long matricolaResponsabile;	
 	
-	@NonNull
+	@Column(nullable = false, name = "password")
+	private String password;
+
+	@Column(nullable = false, name = "email")
+	private String email;
+
+	@Column(nullable = false, name = "ruolo")
+	private String role;
+	
+	@Column(nullable = false, name = "nome")
 	private String nomeResponsabile;
 	
-	@NonNull
+	@Column(nullable = false, name = "cognome")	
 	private String cognomeResponsabile;
 	
+	public Responsabile()
+	{
+	}
+
 	public Responsabile(Long matricola, String nome, String cognome)
 	{
 		this.matricolaResponsabile = matricola;

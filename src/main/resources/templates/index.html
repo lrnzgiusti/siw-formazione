@@ -8,9 +8,9 @@ Name       : Livewire
 Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20130820
-
+xmlns="http://www.w3.org/1999/xhtml" 
 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Iuformation</title>
@@ -40,7 +40,7 @@ Released   : 20130820
 							title="">Homepage</a></li>
 						<li><a href="#courses" accesskey="4" title="">Careers</a></li>
 						<li><a href="#" accesskey="5" title="">Contact Us</a></li>
-						<li><a href="/login" accesskey="2" title="">Login</a></li>
+						<li><a th:href="@{/login}" accesskey="2" title="">Login</a></li>
 					</ul>
 				</div>
 			</div>
@@ -89,73 +89,49 @@ Released   : 20130820
 		</div>
 		<div id="two-column" class="container">
 			<div id="tbox1">
-				<a name = "courses"></a>
+				<a name="courses"></a>
 				<div class="title">
 					<h2>ECDL and Web Designer</h2>
 				</div>
-				<a href="#" class="image image-full"><img src="https://www.setaswall.com/wp-content/uploads/2017/12/Computer-Tech-Wallpaper-24-4058x2800-768x530.jpg"
+				<a href="#" class="image image-full"><img
+					src="https://www.setaswall.com/wp-content/uploads/2017/12/Computer-Tech-Wallpaper-24-4058x2800-768x530.jpg"
 					alt="" /></a>
-				<p>The our courses make you billionaire bojanè. Satisfied or grab your dick</p>
+				<p>The our courses make you billionaire bojanè. Satisfied or
+					grab your dick</p>
 			</div>
 			<div id="tbox2">
 				<div class="title">
 					<h2>English courses</h2>
 				</div>
-				<a href="#" class="image image-full"><img src="http://rainbowwallpaper.info/Wallpapers-Idea/learn-english-wallpaper-photo-For-Wallpaper-Idea.jpg"
+				<a href="#" class="image image-full"><img
+					src="http://rainbowwallpaper.info/Wallpapers-Idea/learn-english-wallpaper-photo-For-Wallpaper-Idea.jpg"
 					alt="" /></a>
-				<p>The our courses make you billionaire bojanè. Satisfied or grab your dick</p>
+				<p>The our courses make you billionaire bojanè. Satisfied or
+					grab your dick</p>
 			</div>
 		</div>
 	</div>
-	<!-- <div id="featured-wrapper">
-		<div id="featured" class="container">
-			<div class="heading">
-				<h2>Maecenas lectus sapien</h2>
-				<span class="byline">Pellentesque viverra vulputate enim.
-					Aliquam erat volutpat.</span>
-			</div>
-			<div class="column1">
-				<span class="icon icon-flag"></span>
-				<div class="title">
-					<h2>Maecenas lectus sapien</h2>
-				</div>
-				<p>In posuere eleifend odio. Quisque semper augue mattis wisi.
-					Pellentesque vulputate enim. Aliquam erat volutpat.</p>
-			</div>
-			<div class="column2">
-				<span class="icon icon-truck"></span>
-				<div class="title">
-					<h2>Praesent scelerisque</h2>
-				</div>
-				<p>In posuere eleifend odio. Quisque semper augue mattis wisi.
-					Pellentesque vulputate enim. Aliquam erat volutpat.</p>
-			</div>
-			<div class="column3">
-				<span class="icon icon-trophy"></span>
-				<div class="title">
-					<h2>Fusce ultrices fringilla</h2>
-				</div>
-				<p>In posuere eleifend odio. Quisque semper augue mattis wisi.
-					Pellentesque vulputate enim. Aliquam erat volutpat.</p>
-			</div>
-		</div>
-	</div> -->
 	<div id="portfolio-wrapper">
 		<div id="portfolio" class="container">
 			<div class="title">
 				<h2>About us</h2>
 			</div>
-			<div id="column1">
-				<img
-					src="https://media-exp2.licdn.com/mpr/mpr/shrinknp_200_200/AAMAAgDGAAwAAQAAAAAAAAoCAAAAJDMzNmFlNmUzLWE3ZmYtNDQxYS05NzZiLWRmMDM2ZmM4OGEzYg.jpg"></img>
-			</div>
-			<div id="column2">
-				<img
-					src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/1908275_694284750612669_3627510428941710543_n.jpg?_nc_cat=0&oh=aa0b4afd8782c51eddec063f246cebb7&oe=5BC432FC"></img>
-			</div>
-			<div id="column3">
-				<img
-					src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/20374712_1769280129763568_959469184925151588_n.jpg?_nc_cat=0&oh=616e1baa535f1847bede9e398050595c&oe=5BC28A02"></img>
+			<div id = "images">
+				<div id="column1">
+					<img
+						src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/11413_973327942696031_6091739547888408541_n.jpg?_nc_cat=0&oh=625671d32218c838ba7af789ca92def3&oe=5BB55DE5"></img>
+						<p>Silvio Severino</p><p>Roma Tre University</p>
+				</div>
+				<div id="column2">
+					<img
+						src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/1908275_694284750612669_3627510428941710543_n.jpg?_nc_cat=0&oh=aa0b4afd8782c51eddec063f246cebb7&oe=5BC432FC"></img>
+						<p>Jacopo Grifoni</p><p>Roma Tre University</p>
+				</div>
+				<div id="column3">
+					<img
+						src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/20374712_1769280129763568_959469184925151588_n.jpg?_nc_cat=0&oh=616e1baa535f1847bede9e398050595c&oe=5BC28A02"></img>
+						<p>Lorenzo Giusti</p><p>Roma Tre University</p>
+				</div>
 			</div>
 		</div>
 	</div>

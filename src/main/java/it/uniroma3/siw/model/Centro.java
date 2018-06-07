@@ -20,20 +20,21 @@ import javax.persistence.OneToOne;
 @Entity
 public class Centro
 {
+	//provaaaa
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, name = "nome")
 	private String nomeCentro;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, name = "email")
 	private String emailCentro;
 	
-	@Column(nullable=false)
+	@Column(name = "telefono")
 	private String telefonoCentro;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, name = "capMax")
 	private Integer capienzaMaxCentro;
 	
 	@OneToMany

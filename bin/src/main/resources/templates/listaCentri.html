@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Lista Centri</title>
+</head>
+<body>
+    <div>
+    	<h4>Lista dei centri</h4>
+		<div>
+			<table>
+				<tr>
+					<th>Nome Centro</th>
+				</tr>
+				<tr th:each="centro : ${centri}">
+					<td><a th:href="@{'/centro' + '/' + ${centro.id}}"><span th:text="${centro.nomeCentro}"></span></a></td>					
+                </tr>
+            </table>
+   		</div>
+    </div>
+</body>
+</html>

@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Centro
 {
+	//provaaaa
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

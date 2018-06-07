@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -69,6 +70,8 @@ public class Centro
 	
 	public Centro() 
 	{
+		categorieDelCentro = new ArrayList<>();
+		attivita = new ArrayList<>();
 	}
 
 	public String getNomeCentro() {

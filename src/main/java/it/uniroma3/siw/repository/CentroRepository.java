@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.Centro;
 
 public interface CentroRepository extends CrudRepository<Centro, Long> 
@@ -11,6 +12,8 @@ public interface CentroRepository extends CrudRepository<Centro, Long>
 	public List<Centro> findByNomeCentro(String nomeCentro);
 	
 	public List<Centro> findByEmailCentro(String emailCentro);
+	
+	public List<Attivita> findAllAttivitaById(Long id);
 	
 	public List<Centro> findByTelefonoCentro(String telefonoCentro);
 	

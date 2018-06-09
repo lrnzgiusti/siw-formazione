@@ -30,6 +30,12 @@ public class AllievoController {
 		return "formAllievo";
 	}
 	
+	@RequestMapping("/index")
+	public String index()
+	{
+		return "index";
+	}
+	
 	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
 	public String getCentro(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("allievo", this.allievoService.findById(id));

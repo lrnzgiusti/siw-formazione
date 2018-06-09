@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
 /**
@@ -41,6 +42,7 @@ public class Allievo
 	
 	@NonNull
 	@Temporal (TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataNascita; //probabile obsolescenza della classe DATE, vedere GregorianCalendar. Risolto con temporal
 	
 	@NonNull

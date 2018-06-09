@@ -37,7 +37,7 @@
 			
 			<tr>
 				<td>Data di Nascita Allievo:</td>
-				 <td><input type="datetime" th:field="*{dataNascita}" /></td>
+				 <td><input type="date" th:field="*{dataNascita}" /></td>
 				 <td th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"></td>
 			</tr>	
 			

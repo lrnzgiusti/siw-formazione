@@ -22,7 +22,7 @@ public class AllievoController {
 
 	@Autowired
 	private AllievoService allievoService;
-
+	
 	@RequestMapping("/addAllievo")
 	public String addCAllievo(Model model)
 	{

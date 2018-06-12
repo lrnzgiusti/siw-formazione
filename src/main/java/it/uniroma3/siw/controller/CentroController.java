@@ -33,7 +33,7 @@ public class CentroController
 		model.addAttribute("centro", new Centro());
 		return "formCentro";
 	}
-	
+
 	@RequestMapping(value = "/centro/{id}", method = RequestMethod.GET)
 	public String getCentro(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("centro", this.centroService.findById(id));
@@ -68,13 +68,13 @@ public class CentroController
 		model.addAttribute("centri", this.centroService.findAll());
 		return "listaCentri";
 	}
-	
+
 	@RequestMapping(value = "/showAttivitaCentro/{id}", method = RequestMethod.GET)
 	public String showAttivitaCentro(@PathVariable("id") Long id, Model model)
-	{
-		Centro centro = this.centroService.findById(id);
+	{		
 		List<Attivita> attivita = this.centroService.findAllAttivitaById(id);
-		return "";
+		model.addAttribute("attivitaCentro",attivita);
+		return "listaAttivitaCentro";
 	}
-	
+
 }

@@ -1,0 +1,128 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]
+<!--[if gt IE 8]><!--> 
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="it"> <!--<![endif]-->
+<head th:replace = "user/dashboard :: head"></head>
+<body>
+
+
+           <!-- Left Panel -->
+		<aside th:replace = "user/dashboard :: leftPanel"></aside>
+	    
+	<!-- Right Panel -->
+	<div id="right-panel" class="right-panel">
+        
+        <!-- Header-->
+        <header th:replace = "user/dashboard :: header"></header>
+
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="content mt-3" th:fragment = "formAllievo">
+			<form th:action="@{/allievo}" method="POST" th:object="${allievo}">
+            <div class="animated fadeIn">
+
+                <div class="row">
+
+                    <div class="col-xs-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Inserisci nuovo allievo</strong> <small><span th:text="${exists}"></span></small>
+                            </div>
+                            <div class="card-body card-block">
+                            	<div class="form-group">
+                                    <label class=" form-control-label">Nome</label>
+                                    <small><span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" id = "inputError" ></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
+                                        <input type="text" th:field="*{nome}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Mario</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Cognome</label>
+                                    <small><span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" style = "color:red"></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
+                                        <input type="text" th:field="*{cognome}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Rossi</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Data di nascita</label>
+                                    <small><span th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}" style = "color:red"></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input type="date" th:field="*{dataNascita}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. 99/99/9999</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Luogo di nascita</label>
+				 					<small><span th:if="${#fields.hasErrors('luogoNascita')}" th:errors="*{luogoNascita}" style = "color:red"></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                                        <input type="text" th:field="*{luogoNascita}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. Rome</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Telefono</label>
+									<small><span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" style = "color:red"></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                        <input type="text" th:field="*{telefono}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. +99 9999999999</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class=" form-control-label">Email</label>
+				 					<small><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style = "color:red"></span></small>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                        <input type="text" th:field="*{email}" class="form-control">
+                                    </div>
+                                    <small class="form-text text-muted">ex. mario.rossi@provider.com</small>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="submit" value = "invia" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+            </form>
+        </div><!-- .content -->
+        
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+	<div th:replace = "user/dashboard :: script"></div>
+
+</body>
+</html>
+
+
+

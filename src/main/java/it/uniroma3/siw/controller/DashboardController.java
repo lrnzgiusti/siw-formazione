@@ -9,6 +9,6 @@ public class DashboardController
 	@RequestMapping("dashboard")
 	public String dashboard()
 	{
-		return "dashboard";
+		return "user/dashboard";
 	}
 }

@@ -23,7 +23,7 @@ public class CategoriaAttivita
 	@Column(name = "descrizione")
 	private String descrizioneAttivita;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "categoria")
 	private List<Attivita> attivita;
 
 	public CategoriaAttivita(String nomeCategoriaAttivita, String descrizioneAttivita) {

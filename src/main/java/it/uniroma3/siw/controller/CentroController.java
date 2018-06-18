@@ -31,13 +31,13 @@ public class CentroController
 	public String addCentro(Model model)
 	{
 		model.addAttribute("centro", new Centro());
-		return "formCentro";
+		return "admin/formCentro";
 	}
 
 	@RequestMapping(value = "/centro/{id}", method = RequestMethod.GET)
 	public String getCentro(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("centro", this.centroService.findById(id));
-		return "mostraCentro";
+		return "admin/mostraCentro";
 	}
 
 	@RequestMapping(value = "/centro", method = RequestMethod.POST)
@@ -48,7 +48,7 @@ public class CentroController
 		if(this.centroService.alreadyExists(centro))
 		{
 			model.addAttribute("exist", "Il centro già esiste");
-			return "formCentro";
+			return "admin/formCentro";
 		}
 		else
 		{
@@ -59,14 +59,14 @@ public class CentroController
 				return showCentri(model);
 			}
 		}
-		return "formCentro";
+		return "admin/formCentro";
 	}
 
 	@RequestMapping("/showCentri")
 	public String showCentri(Model model)
 	{
 		model.addAttribute("centri", this.centroService.findAll());
-		return "listaCentri";
+		return "admin/listaCentri";
 	}
 
 	@RequestMapping(value = "/showAttivitaCentro/{id}", method = RequestMethod.GET)
@@ -74,7 +74,7 @@ public class CentroController
 	{		
 		List<Attivita> attivita = this.centroService.findAllAttivitaById(id);
 		model.addAttribute("attivitaCentro",attivita);
-		return "listaAttivitaCentro";
+		return "admin/listaAttivitaCentro";
 	}
 
 }

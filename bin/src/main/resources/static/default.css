@@ -303,23 +303,29 @@ hr
 		color: #EEA7C1;
 	}
 	
-	#column1,
-	#column2,
-	#column3,
+	#images
 	{
-		width: 282px;
-		margin-rigth: 24px;
+		text-align: center;
+		margin: 0 auto;
 	}
 	
-	#column1,
+
+	
+	#column1
+	{
+		margin: auto 8% 0 8%;
+		float: left;
+	}
 	#column2
 	{
 		float: left;
+		margin: auto 8% 0 8%;
 	}
 	
 	#column3
 	{
 		float: left;
+		margin: auto 8% 0 8%;
 	}
 	
 	#column1 > img
@@ -402,7 +408,7 @@ hr
 		display: inline-block;
 		margin-top: 2em;
 		padding: 1em 3em;
-		background: #FCC44B;
+		background: rgba(0,0,0,.25);
 		-moz-transition: opacity 0.25s ease-in-out;
 		-webkit-transition: opacity 0.25s ease-in-out;
 		-o-transition: opacity 0.25s ease-in-out;
@@ -414,16 +420,18 @@ hr
 		font-weight: 600;
 		font-size: 0.90em;
 		color: #000;
+		/*#FCC44B*/
 	}
 
 		.button:hover
 		{
-			background: #FBC551;
 		-moz-transition: opacity 0.25s ease-in-out;
 		-webkit-transition: opacity 0.25s ease-in-out;
 		-o-transition: opacity 0.25s ease-in-out;
 		-ms-transition: opacity 0.25s ease-in-out;
 		transition: opacity 0.25s ease-in-out;
+		background: rgba(0,0,0,.5);
+		color: #ffffff;
 		}
 		
 		.button:active
@@ -495,9 +503,14 @@ hr
 
 	.major .button
 	{
-		background: #FCC44B;
+		background: rgba(0,0,0,.35);
 		font-size: 1.5em;
 		font-weight: 700;
+	}
+	.major .button:hover
+	{
+		background: rgba(0,0,0,.5);
+		color: #ffffff;
 	}
 
 

@@ -30,13 +30,13 @@ public class CategoriaAttivitaController
 	public String addCategoriaAttivita(Model model)
 	{
 		model.addAttribute("categoriaAttivita", new CategoriaAttivita());
-		return "formCategoriaAttivita";
+		return "admin/formCategoriaAttivita";
 	}
 	
 	@RequestMapping(value = "/categoriaAttivita/{id}", method = RequestMethod.GET)
 	public String getCategoriaAttivita(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("categoriaAttivita", this.categoriaAttivitaService.findById(id));
-		return "mostraCategoriaAttivita";
+		return "admin/mostraCategoriaAttivita";
 	}
 
 	@RequestMapping(value = "/categoriaAttivita", method = RequestMethod.POST)
@@ -47,7 +47,7 @@ public class CategoriaAttivitaController
 		if(this.categoriaAttivitaService.alreadyExists(categoriaAttivita))
 		{
 			model.addAttribute("exist", "La categoria già esiste");
-			return "formCategoriaAttivita";
+			return "admin/formCategoriaAttivita";
 		}
 		else
 		{
@@ -58,14 +58,14 @@ public class CategoriaAttivitaController
 				return showCategorieAttivita(model);
 			}
 		}
-		return "formCategoriaAttivita";
+		return "admin/formCategoriaAttivita";
 	}
 	
 	@RequestMapping("/showCategorieAttivita")
 	public String showCategorieAttivita(Model model)
 	{
 		model.addAttribute("categorieAttivita", this.categoriaAttivitaService.findAll());
-		return "listaCategorieAttivita";
+		return "admin/listaCategorieAttivita";
 	}
 	
 }

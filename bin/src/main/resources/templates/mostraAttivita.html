@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<title>Attivita</title>
+</head>
+<body>
+	<div>
+		<span th:text="${attivita.nomeAttivita}"></span>
+	</div>
+	<div>
+		<span th:text="${#dates.format(attivita.dataAttivita, 'dd-MM-yyyy')}"></span>
+	</div>
+
+</body>
+</html>

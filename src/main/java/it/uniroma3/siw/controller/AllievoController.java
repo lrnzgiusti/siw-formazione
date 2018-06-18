@@ -27,7 +27,7 @@ public class AllievoController {
 	public String addCAllievo(Model model)
 	{
 		model.addAttribute("allievo", new Allievo());
-		return "formAllievo";
+		return "user/formAllievo";
 	}
 	
 	@RequestMapping("/index")
@@ -39,7 +39,7 @@ public class AllievoController {
 	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
 	public String getCentro(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("allievo", this.allievoService.findById(id));
-		return "mostraAllievo";
+		return "user/mostraAllievo";
 	}
 
 	@RequestMapping(value = "/allievo", method = RequestMethod.POST)
@@ -68,7 +68,7 @@ public class AllievoController {
 	public String showAllievi(Model model)
 	{
 		model.addAttribute("allievi", this.allievoService.findAll());
-		return "listaAllievi";
+		return "user/listaAllievi";
 	}
 
 }

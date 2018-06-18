@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
 /**
@@ -31,6 +32,7 @@ public class Attivita
 	
 	@NonNull
 	@Temporal (TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAttivita;
 	
 	@ManyToMany
@@ -53,7 +55,17 @@ public class Attivita
 	
 	public Attivita()
 	{}
+	
+	public Long getId()
+	{
+		return id;
+	}
 
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
+	
 	public String getNomeAttivita() {
 		return nomeAttivita;
 	}

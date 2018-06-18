@@ -22,9 +22,6 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	/**
-	 * Cambiare tutto con username
-	 */
 	private final String usersQuery = "SELECT username,password,TRUE FROM responsabile WHERE username = ?";
 	private final String rolesQuery = "SELECT username,role FROM responsabile WHERE username = ?";
 

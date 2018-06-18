@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+		<form th:action="@{/login}"  method="POST" th:object="${responsabile}">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="usernameL" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="passwordL" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<a th:href><input type="submit" class="button" value="Sign In"></a>
+				</div>
+				<div>
+					<span th:text = "${success}"></span>
+					<span th:text = "${exists}"></span>
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div>
+			</form>
+			<form th:action="@{/registrazione}" method="POST" th:object="${responsabile}">
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Nome</label>
+					<input id="nome" type="text" class="input" placeholder="Nome" name="nome" th:field="*{nomeResponsabile}" required="required">
+				</div>
+				<div class="group">
+					<label for="user" class="label">Cognome</label>
+					<input id="cognome" type="text" class="input" placeholder="Cognome" name="cognome" th:field="*{cognomeResponsabile}" required="required">
+				</div>
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="usernameR" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="passwordR" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Email</label>
+					<input id="email" type="text" class="input" placeholder="Email" name="email" th:field="*{email}" required="required">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-1"><a>Already Member?</a></label>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+  
+  
+
+</body>
+
+</html>

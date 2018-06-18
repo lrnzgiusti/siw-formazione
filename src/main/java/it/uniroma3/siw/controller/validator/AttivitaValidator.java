@@ -25,12 +25,12 @@ public class AttivitaValidator implements Validator
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nomeAttivita", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dataAttivita", "required");
 		
-//		if(!errors.hasErrors())
-//		{
-//			Attivita a = (Attivita)target;
-//			if(a.getDataAttivita().before(new Date()))
-//				errors.rejectValue("dataAttivita", "before");
-//		}
+		if(!errors.hasErrors())
+		{
+			Attivita a = (Attivita)target;
+			if(a.getDataAttivita().before(new Date()))
+				errors.rejectValue("dataAttivita", "before");
+		}
 	}
 
 }

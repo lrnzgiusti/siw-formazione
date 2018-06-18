@@ -50,11 +50,21 @@ public class AllievoService
 		else
 			return null;
 	}
+	
+	public Allievo findByEmail(String email)
+	{
+		return this.allievoRepository.findByEmail(email).get();
+	}
 
 	public boolean alreadyExists(Allievo allievo)
 	{
 		List<Allievo> allievi = this.allievoRepository.findByNomeAndCognomeAndLuogoNascita(allievo.getNome(), allievo.getCognome(), allievo.getLuogoNascita());
 		return allievi.size() > 0;
-	}	
+	}
 
+	public boolean notExists(Allievo allievo)
+	{
+		Optional<Allievo> allievoOpt = this.allievoRepository.findByEmail(allievo.getEmail());
+		return !allievoOpt.isPresent();
+	}
 }

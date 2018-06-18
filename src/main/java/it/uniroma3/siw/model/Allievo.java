@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -48,7 +50,7 @@ public class Allievo
 	@NonNull
 	private String luogoNascita;
 	
-	@ManyToMany(mappedBy = "allievi")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "allievi")
 	private List<Attivita> attivita;
 
 	public Allievo(String nome, String cognome, String email, String telefono, Date dataNascita, String luogoNascita) {
@@ -125,5 +127,11 @@ public class Allievo
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Transactional
+	public void addAttivita(Attivita att)
+	{
+		this.attivita.add(att);
 	}
 }

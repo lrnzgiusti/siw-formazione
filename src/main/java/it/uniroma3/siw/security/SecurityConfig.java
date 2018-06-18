@@ -1,5 +1,7 @@
 package it.uniroma3.siw.security;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -12,14 +14,17 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
-
-import javax.sql.DataSource;
+import org.springframework.security.web.firewall.HttpFirewall;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	/**
+	 * Cambiare tutto con username
+	 */
 	private final String usersQuery = "SELECT username,password,TRUE FROM responsabile WHERE username = ?";
 	private final String rolesQuery = "SELECT username,role FROM responsabile WHERE username = ?";
 
@@ -45,20 +50,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		System.out.println("-----------------MA QUI CE ENTRI ??--------------------");
 		http
 		.csrf().disable()
 		.authorizeRequests()
 		.antMatchers("/", "/index", "/login", "/css/**", "/js/**","/static/**", "/images/**").permitAll()
-		.antMatchers("/superadmin/**").hasRole("ADMIN")
-		.antMatchers("/dashboard/**").hasRole("ADMIN")
+		.antMatchers("/admin/**").hasRole("ADMIN")
 		.antMatchers("/user/**").hasRole("USER")
-		.antMatchers("/arrivalsManager/**").hasRole("ARRIVALS_MANAGER")
 		.anyRequest().permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/login")
-		.defaultSuccessUrl("/index")
+		.defaultSuccessUrl("/role")
 		.and()
 		.logout()
 		.logoutSuccessUrl("/login")
@@ -80,16 +84,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception 
 	{
+		web.httpFirewall(allowUrlEncodedSlashHttpFirewall());
 		web.ignoring().antMatchers("/resources/**").anyRequest();
 	}
 
-	/*
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("superadmin").password("superadmin").roles("SUPERADMIN");
-    }
-	 */
+	private HttpFirewall allowUrlEncodedSlashHttpFirewall() {
+		StrictHttpFirewall firewall = new StrictHttpFirewall();
+		firewall.setAllowSemicolon(true);
 
+		return firewall;
+	}
 }

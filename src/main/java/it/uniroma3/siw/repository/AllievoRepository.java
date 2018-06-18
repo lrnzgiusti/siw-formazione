@@ -1,6 +1,7 @@
 package it.uniroma3.siw.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -16,6 +17,8 @@ public interface AllievoRepository extends CrudRepository<Allievo, Long>
 	public List<Allievo> findByCognome(String cognome);
 	
 	public List<Allievo> findByNomeAndCognomeAndLuogoNascita(String nome, String cognome, String luogoNascita);
+
+	public Optional<Allievo> findByEmail(String email);
 	
 	
 }

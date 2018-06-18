@@ -1,6 +1,9 @@
 package it.uniroma3.siw.controller.validator;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -24,5 +27,10 @@ public class AllievoValidator implements Validator
 	    @Override
 	    public boolean supports(Class<?> aClass) {
 	        return Allievo.class.equals(aClass);
-	    }	
+	    }
+
+		public void validateToPrenotazione(@Valid Object o, Errors errors)
+		{
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
+		}	
 }

@@ -44,4 +44,25 @@ public class ResponsabileService
 		else
 			return null;
 	}
+
+	public Responsabile findByEmail(String email)
+	{
+		Optional<Responsabile> respOpt = this.responsabileRepository.findByEmail(email);
+		if(respOpt.isPresent())
+			return respOpt.get();
+		return null;
+	}
+
+	public boolean alredyExists(Responsabile responsabile)
+	{
+		return this.responsabileRepository.findByEmail(responsabile.getEmail()).isPresent();
+	}
+
+	public Responsabile findByUsername(String username)
+	{
+		Optional<Responsabile> respOpt = this.responsabileRepository.findByUsername(username);
+		if(respOpt.isPresent())
+			return respOpt.get();
+		return null;
+	}
 }

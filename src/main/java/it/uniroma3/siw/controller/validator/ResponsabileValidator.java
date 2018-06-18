@@ -10,12 +10,16 @@ import it.uniroma3.siw.model.Allievo;
 @Component
 public class ResponsabileValidator implements Validator
 {
-	 @Override
-	    public void validate(Object o, Errors errors) {
-
-	    }
-	    @Override
-	    public boolean supports(Class<?> aClass) {
-	        return Allievo.class.equals(aClass);
-	    }	
+	@Override
+	public void validate(Object o, Errors errors) {
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nomeResponsabile", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognomeResponsabile", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required");
+	}
+	
+	@Override
+	public boolean supports(Class<?> aClass) {
+		return Allievo.class.equals(aClass);
+	}	
 }

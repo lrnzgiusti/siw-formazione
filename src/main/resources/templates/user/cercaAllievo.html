@@ -37,8 +37,8 @@
             </div>
         </div>
 
-		<div class="content mt-3" th:fragment = "formAttivita">
-			<form th:action="@{/newAttivita}" method="POST" th:object="${attivita}">
+		<div class="content mt-3" th:fragment = "formAllievo">
+			<form th:action="@{/showAttivitaPrenotabili}" method="POST" th:object="${allievo}">
             <div class="animated fadeIn">
 
                 <div class="row">
@@ -46,30 +46,21 @@
                     <div class="col-xs-6 col-sm-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Inserisci nuova attivita</strong> <small><span th:text="${exists}"></span></small>
+                                <strong>Inserisci email dell'allievo</strong> <small><span th:text="${notExists}"></span></small>
                             </div>
                             <div class="card-body card-block">
-                            	<div class="form-group">
-                                    <label class=" form-control-label">Nome</label>
-                                    <small><span th:if="${#fields.hasErrors('nomeAttivita')}" th:errors="*{nomeAttivita}" id = "inputError" ></span></small>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
-                                        <input type="text" th:field="*{nomeAttivita}" class="form-control">
-                                    </div>
-                                    <small class="form-text text-muted">ex. english course</small>
-                                </div>
                                 <div class="form-group">
-                                    <label class=" form-control-label">Data</label>
-                                    <small><span th:if="${#fields.hasErrors('dataAttivita')}" th:errors="*{dataAttivita}" style = "color:red"></span></small>
+                                    <label class=" form-control-label">Email</label>
+				 					<small><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style = "color:red"></span></small>
                                     <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input type="date" th:field="*{dataAttivita}" min = "<script>new Date()</script>" class="form-control">
+                                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                        <input type="text" th:field="*{email}" class="form-control">
                                     </div>
-                                    <small class="form-text text-muted">ex. 99/99/9999</small>
+                                    <small class="form-text text-muted">ex. mario.rossi@provider.com</small>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="submit" value = "invia" class="form-control">
+                                        <input type="submit" value = "cerca" class="form-control">
                                     </div>
                                 </div>
                             </div>

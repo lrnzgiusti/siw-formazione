@@ -44,12 +44,12 @@ public class Centro
 	@JoinColumn(name = "attivita_id")
 	private List<Attivita> attivita;
 	
-	@OneToOne(mappedBy = "centro")
-	private ResponsabileCentro responsabileCentro;
+	@OneToOne
+	private Responsabile responsabileCentro;
 
 	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro,
 			List<CategoriaAttivita> categorieDelCentro, List<Attivita> attivita,
-			ResponsabileCentro responsabileCentro)
+			Responsabile responsabileCentro)
 	{
 		this.nomeCentro = nomeCentro;
 		this.emailCentro = emailCentro;
@@ -122,11 +122,11 @@ public class Centro
 		this.attivita = attivita;
 	}
 
-	public ResponsabileCentro getResponsabileCentro() {
+	public Responsabile getResponsabileCentro() {
 		return responsabileCentro;
 	}
 
-	public void setResponsabileCentro(ResponsabileCentro responsabileCentro) {
+	public void setResponsabileCentro(Responsabile responsabileCentro) {
 		this.responsabileCentro = responsabileCentro;
 	}
 

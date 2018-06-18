@@ -14,9 +14,9 @@ import java.io.IOException;
 
 // handle 403 page
 @Component
-public class SiwAccessDeniedHandler implements AccessDeniedHandler {
+public class MyAccessAccessDeniedHandler implements AccessDeniedHandler {
 
-    private static Logger logger = LoggerFactory.getLogger(SiwAccessDeniedHandler.class);
+    private static Logger logger = LoggerFactory.getLogger(MyAccessAccessDeniedHandler.class);
 
     @Override
     public void handle(HttpServletRequest httpServletRequest,
@@ -32,7 +32,6 @@ public class SiwAccessDeniedHandler implements AccessDeniedHandler {
                     + httpServletRequest.getRequestURI());
         }
 
-        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index");
-
+        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/403");
     }
 }

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Day 001 Login Form</title>
+  <title>Login</title>
   
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
@@ -24,18 +24,22 @@
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
+					<input id="usernameL" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
+					<input id="passwordL" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
 				</div>
 				<div class="group">
 					<input id="check" type="checkbox" class="check" checked>
 					<label for="check"><span class="icon"></span> Keep me Signed in</label>
 				</div>
 				<div class="group">
-					<input type="submit" class="button" value="Sign In">
+					<a th:href><input type="submit" class="button" value="Sign In"></a>
+				</div>
+				<div>
+					<span th:text = "${success}"></span>
+					<span th:text = "${exists}"></span>
 				</div>
 				<div class="hr"></div>
 				<div class="foot-lnk">
@@ -47,23 +51,23 @@
 			<div class="sign-up-htm">
 				<div class="group">
 					<label for="user" class="label">Nome</label>
-					<input id="user" type="text" class="input" placeholder="Nome" name="nome" th:field="*{nomeResponsabile}" required="required">
+					<input id="nome" type="text" class="input" placeholder="Nome" name="nome" th:field="*{nomeResponsabile}" required="required">
 				</div>
 				<div class="group">
 					<label for="user" class="label">Cognome</label>
-					<input id="user" type="text" class="input" placeholder="Cognome" name="cognome" th:field="*{cognomeResponsabile}" required="required">
+					<input id="cognome" type="text" class="input" placeholder="Cognome" name="cognome" th:field="*{cognomeResponsabile}" required="required">
 				</div>
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
+					<input id="usernameR" type="text" class="input" placeholder="Username" name="username" th:field="*{username}" required="required">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
+					<input id="passwordR" type="password" class="input" data-type="password" placeholder="Password" name="password" th:field="*{password}" required="required">
 				</div>
 				<div class="group">
-					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="text" class="input" placeholder="Email" name="email" th:field="*{email}" required="required">
+					<label for="pass" class="label">Email</label>
+					<input id="email" type="text" class="input" placeholder="Email" name="email" th:field="*{email}" required="required">
 				</div>
 				<div class="group">
 					<input type="submit" class="button" value="Sign Up">

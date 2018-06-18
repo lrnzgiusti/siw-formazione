@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -96,5 +98,11 @@ public class Attivita
 
 	public void setCategoria(CategoriaAttivita categoria) {
 		this.categoria = categoria;
+	}
+
+	@Transactional
+	public void addAllievo(Allievo allievo)
+	{
+		this.allievi.add(allievo);
 	}
 }

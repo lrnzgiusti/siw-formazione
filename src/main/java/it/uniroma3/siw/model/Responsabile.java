@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Responsabile 
@@ -14,16 +15,16 @@ public class Responsabile
 	@Column(name = "matricola")
 	private Long matricolaResponsabile;	
 	
+	@Column(nullable = false, name = "username")
+	private String username;
+	
 	@Column(nullable = false, name = "password")
 	private String password;
 
 	@Column(nullable = false, name = "email")
 	private String email;
 
-	@Column(nullable = false, name = "username")
-	private String username;
-
-	@Column(nullable = false, name = "ruolo")
+	@Column(nullable = false, name = "role")
 	private String role;
 	
 	@Column(nullable = false, name = "nome")
@@ -31,6 +32,9 @@ public class Responsabile
 
 	@Column(nullable = false, name = "cognome")	
 	private String cognomeResponsabile;
+	
+	@OneToOne(mappedBy = "responsabileCentro")
+	private Centro centro;
 	
 	public Responsabile()
 	{
@@ -67,14 +71,6 @@ public class Responsabile
 		this.cognomeResponsabile = cognomeResponsabile;
 	}
 	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
 	public String getPassword() {
 		return password;
 	}
@@ -98,11 +94,32 @@ public class Responsabile
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	public String getUsername()
+	{
+		return username;
+	}
+
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+
+	public Centro getCentro()
+	{
+		return centro;
+	}
+
+	public void setCentro(Centro centro)
+	{
+		this.centro = centro;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Responsabile [matricolaResponsabile=" + matricolaResponsabile + ", password=" + password + ", email="
-				+ email + ", username=" + username + ", role=" + role + ", nomeResponsabile=" + nomeResponsabile
+				+ email + ", role=" + role + ", nomeResponsabile=" + nomeResponsabile
 				+ ", cognomeResponsabile=" + cognomeResponsabile + "]";
 	}
 }

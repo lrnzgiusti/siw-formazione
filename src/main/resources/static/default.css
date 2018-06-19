@@ -94,7 +94,7 @@ hr
 /** WRAPPER */
 
 #wrapper {
-	background: #FFFFFF url(images/bg01.png) repeat;
+	/*background: #FFFFFF url(images/bg01.png) repeat;*/
 }
 
 .container
@@ -283,7 +283,7 @@ hr
 	#portfolio-wrapper
 	{
 		background: #212121;
-		padding: 6em 0em;
+		padding: 0.5em 0em;
 	}
 	
 	#portfolio
@@ -354,7 +354,8 @@ hr
 	#copyright
 	{
 		overflow: hidden;
-		padding: 5em 0em;
+		/* padding: 5em 0em; */
+		backgroud: #212121;
 	}
 	
 	#copyright p
@@ -363,7 +364,7 @@ hr
 		text-align: center;
 		text-transform: uppercase;
 		font-size: 0.80em;
-		color: #6F6F6F;
+		color: #c3c3c3;
 	}
 	
 	#copyright a

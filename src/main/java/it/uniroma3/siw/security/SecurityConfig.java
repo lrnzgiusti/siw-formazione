@@ -20,8 +20,8 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+public class SecurityConfig extends WebSecurityConfigurerAdapter
+{
 	private final String usersQuery = "SELECT username,password,TRUE FROM responsabile WHERE username = ?";
 	private final String rolesQuery = "SELECT username,role FROM responsabile WHERE username = ?";
 
@@ -38,51 +38,40 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource)
-		.passwordEncoder(new BCryptPasswordEncoder())
-		.usersByUsernameQuery(usersQuery)
-		.authoritiesByUsernameQuery(rolesQuery);
-	}
-
-	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("-----------------MA QUI CE ENTRI ??--------------------");
 		http
-		.csrf().disable()
-		.authorizeRequests()
-		.antMatchers("/", "/index", "/login", "/css/**", "/js/**","/static/**", "/images/**").permitAll()
+		.csrf().disable().authorizeRequests()
+		.antMatchers("/", "/index", "/login", "/signUpPage").permitAll()
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.antMatchers("/user/**").hasRole("USER")
 		.anyRequest().permitAll()
 		.anyRequest().authenticated()
-		.and()
-		.formLogin()
-		.loginPage("/login")
+		.and().formLogin().loginPage("/login")
 		.defaultSuccessUrl("/role")
-		.and()
-		.logout()
-		.logoutSuccessUrl("/login")
-		.permitAll()
-		.and()
-		.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+		.and().logout().logoutSuccessUrl("/login").permitAll()
+		.and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 	}
-
-
+	
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource)
-		.passwordEncoder(bCryptPasswordEncoder())
-		.usersByUsernameQuery(usersQuery)
-		.authoritiesByUsernameQuery(rolesQuery);
-	}
-
-	//Spring Boot configured this already.
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .passwordEncoder(bCryptPasswordEncoder())
+                .usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery);
+    }
+	
 	@Override
-	public void configure(WebSecurity web) throws Exception 
-	{
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery);
+    }
+
+	@Override
+	public void configure(WebSecurity web) {
 		web.httpFirewall(allowUrlEncodedSlashHttpFirewall());
-		web.ignoring().antMatchers("/resources/**").anyRequest();
+		web.ignoring().antMatchers("/fonts.css", "/default.css", "/assets/**", "/css/**", "/images/**", "/fonts/**", "/js/**", "/vendor/**");
 	}
 
 	private HttpFirewall allowUrlEncodedSlashHttpFirewall() {
@@ -91,4 +80,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		return firewall;
 	}
+
 }

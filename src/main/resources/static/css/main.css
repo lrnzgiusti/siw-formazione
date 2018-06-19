@@ -61,7 +61,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #a64bf4;
+  color: #EBA612;
 }
 
 /*---------------------------------------------*/
@@ -294,11 +294,11 @@ iframe {
 }
 
 .input100:focus + .focus-input100::after {
-  color: #a64bf4;
+  color: #EBA612;
 }
 
 .has-val.input100 + .focus-input100::after {
-  color: #a64bf4;
+  color: #EBA612;
 }
 
 
@@ -336,7 +336,8 @@ iframe {
   width: 300%;
   height: 100%;
   background: #a64bf4;
-  background: -webkit-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  
+  background: -webkit-linear-gradient(right, #ffffff, #495057, #ffffff, #495057);
   background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
   background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
@@ -352,7 +353,7 @@ iframe {
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;
-  color: #fff;
+  color: #000;
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -474,3 +475,8 @@ iframe {
     padding-right: 15px;
   }
 } 
+
+#tornaHome{
+	width: 30px;
+	height: 30px;
+}

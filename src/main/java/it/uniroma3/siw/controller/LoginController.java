@@ -28,7 +28,6 @@ public class LoginController
 	@RequestMapping("/login")
 	public String login(Model model)
 	{
-		System.out.println("----------------------IN LOGIN CI ENTRI ?-------------------------");
 		model.addAttribute("responsabile", new Responsabile());
 		return "login";
 	}
@@ -36,25 +35,29 @@ public class LoginController
 	@RequestMapping("/role")
 	public String role(HttpSession session)
 	{
-		System.out.println("------------------------------------> Controllo sono entrato");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String role = auth.getAuthorities().toString();
-        Responsabile responsabile = this.responsabileService.findByUsername(auth.getName());
-
-    	System.out.println("------------------------------------> Controllo "+ responsabile.getEmail());
-    	
-    	if(role.contains("ROLE_ADMIN"))
-    	{
-    		session.setAttribute("responsabileCorrente", responsabile);
-        	return "redirect:/admin/dashboard";
-    	}
-        else if(role.contains("ROLE_USER"))
-        {
-        	session.setAttribute("responsabileCorrente", responsabile);
-        	return "redirect:/user/dashboard";
-        }
-    	return "redirect:/index";
-    	
+		String role = auth.getAuthorities().toString();
+		Responsabile responsabile = this.responsabileService.findByUsername(auth.getName());
+		
+		if(role.contains("ROLE_ADMIN"))
+		{
+			session.setAttribute("responsabileCorrente", responsabile);
+			return "admin/dashboard";
+		}
+		else if(role.contains("ROLE_USER"))
+		{
+			session.setAttribute("responsabileCorrente", responsabile);
+			return "user/dashboard";
+		}
+		
+		return "index";
+	}
+	
+	@RequestMapping("/signUpPage")
+	public String signUpPage(Model model)
+	{
+		model.addAttribute("responsabile", new Responsabile());
+		return "signUp";
 	}
 	
 	@RequestMapping(value = "/registrazione", method = RequestMethod.POST)
@@ -73,6 +76,13 @@ public class LoginController
 			this.responsabileService.save(responsabile);
 			model.addAttribute("success", "L'account per " + responsabile.getNomeResponsabile() + " è stato creato con successo");
 		}
+		return "login";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session)
+	{
+		session.removeAttribute("responsabileCorrente");
 		return "login";
 	}
 	

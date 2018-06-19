@@ -34,17 +34,27 @@
 			
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form th:action = "@{/login}" method = "POST" th:object = "${responsabile}" class="login100-form validate-form">
-					<span class="login100-form-title p-b-49">
-						Login
-					</span>
+					<!-- <span class="login100-form-title p-b-49">
+						<i class = "fa fa-home"></i>
+						<p>Login</p>
+					</span> -->
+					<table>
+						<tr>
+							<td class = "login100-form-title p-b-49"><a th:href = "@{/index}"><i class = "fa fa-home"></i></a></td>
+							<td class = "login100-form-title p-b-49"><p>Login</p></td>
+						</tr>
+						<tr>
+						</tr>
+					</table>
+					<span th:text = "${success}" style = "color: red"></span>
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Username</span>
+						<span class="label-input100">Username</span><small><span th:if = "${#fields.hasErrors('username')}" th:errors = "${username}" style = "color: red"></span></small>
 						<input class="input100" th:field = "*{username}" type="text" name="username" placeholder="Inserisci il tuo username">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<span class="label-input100">Password</span>
+						<span class="label-input100">Password</span><small><span th:if = "${#fields.hasErrors('password')}" th:errors = "${password}" style = "color: red"></span></small>
 						<input class="input100" th:field = "*{password}" type="password" name="pass" placeholder="Inserisci la tua password">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>

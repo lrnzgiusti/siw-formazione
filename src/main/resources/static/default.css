@@ -309,8 +309,6 @@ hr
 		margin: 0 auto;
 	}
 	
-
-	
 	#column1
 	{
 		margin: auto 8% 0 8%;
@@ -345,6 +343,15 @@ hr
 		width: 200px;
 		height: 200px;
 		border-radius: 50%;
+	}
+	
+	#images  a {
+		text-decoration: none;
+		color: #C3C3C3;
+	}
+	#images  a :hover {
+		text-decoration: none;
+		color: #EBA612;
 	}
 
 /*********************************************************************************/

@@ -195,8 +195,22 @@ iframe {
   width: 100%;
 }
 
-.login100-form-title {
-  display: block;
+.login100-form-title
+{
+
+	white-space:nowrap;
+}
+
+.login100-form-title > a > i{
+
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.login100-form-title > p {
+	margin-left: 85%;
   font-family: Poppins-Bold;
   font-size: 39px;
   color: #333333;

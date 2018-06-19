@@ -114,10 +114,7 @@
                             <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                         </a>
 
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                        <div class="user-menu dropdown-menu" style = "border: 1.3px solid black">
 
                                 <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
@@ -126,9 +123,10 @@
                     </div>
 
                     <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
+                    	<p><span th:text = "${session.responsabileCorrente.nomeResponsabile}"></span></p>
+                        <!-- <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
                             <i class="flag-icon flag-icon-it"></i>
-                        </a>
+                        </a> -->
                         <div class="dropdown-menu" aria-labelledby="language" >
                             <div class="dropdown-item">
                                 <span class="flag-icon flag-icon-fr"></span>

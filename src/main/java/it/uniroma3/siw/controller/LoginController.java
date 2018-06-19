@@ -75,8 +75,10 @@ public class LoginController
 			responsabile.setRole("ROLE_USER");
 			this.responsabileService.save(responsabile);
 			model.addAttribute("success", "L'account per " + responsabile.getNomeResponsabile() + " è stato creato con successo");
+			
+			return "login";
 		}
-		return "login";
+		return "signUp";
 	}
 	
 	@RequestMapping("/logout")

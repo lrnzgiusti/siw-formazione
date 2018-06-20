@@ -25,7 +25,7 @@ public class Responsabile
 	private String email;
 
 	@Column(nullable = false, name = "role")
-	private String role;
+	private String role; //un responsabile non e' sempre admin?
 	
 	@Column(nullable = false, name = "nome")
 	private String nomeResponsabile;
@@ -45,6 +45,18 @@ public class Responsabile
 		this.matricolaResponsabile = matricola;
 		this.nomeResponsabile = nome;
 		this.cognomeResponsabile = cognome;
+	}
+
+	
+	
+	public Responsabile(String username, String password, String email,
+			String nomeResponsabile, String cognomeResponsabile, Centro centro) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.nomeResponsabile = nomeResponsabile;
+		this.cognomeResponsabile = cognomeResponsabile;
+		this.centro = centro;
 	}
 
 	public Long getMatricolaResponsabile() {

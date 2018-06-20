@@ -18,11 +18,15 @@ public class CentroValidator implements Validator
 	        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telefonoCentro", "required");
 	        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "capienzaMaxCentro", "required");
 	        
-	        Centro c = (Centro) o;
-	        if(c.getCapienzaMaxCentro() < 0)
+	        if(!errors.hasErrors())
 	        {
-	        	System.out.println(c.getCapienzaMaxCentro());
-	        	errors.rejectValue("capienzaMaxCentro", "negative");
+	        	Centro c = (Centro) o;
+		        if(c.getCapienzaMaxCentro() < 0)
+		        {
+		        	
+		        	System.out.println(c.getCapienzaMaxCentro());
+		        	errors.rejectValue("capienzaMaxCentro", "negative");
+		        }
 	        }
 	    }
 

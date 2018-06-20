@@ -60,7 +60,7 @@
                     <tbody>
                     	<tr th:each="attivita : ${attivitas}">
 							<td>
-								<span th:text="${attivita.id}"></span>
+								<a th:href = "@{'/attivita' + '/' + ${attivita.id}}"><span th:text="${attivita.id}"></span></a>
 							</td>
 							<td>
 								<span th:text="${attivita.nomeAttivita}"></span>

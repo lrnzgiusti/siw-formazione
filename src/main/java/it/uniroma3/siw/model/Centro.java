@@ -37,41 +37,41 @@ public class Centro
 	private Integer capienzaMaxCentro;
 	
 	@OneToMany
-	@JoinColumn(name = "categoria_id")
+	@JoinColumn(name = "centro_id")
 	private List<CategoriaAttivita> categorieDelCentro;
 	
-	@OneToMany
-	@JoinColumn(name = "attivita_id")
-	private List<Attivita> attivita;
+//	@OneToMany
+//	@JoinColumn(name = "attivita_id")
+//	private List<Attivita> attivita;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "centro")
 	private Responsabile responsabileCentro;
 
-	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro,
-			List<CategoriaAttivita> categorieDelCentro, List<Attivita> attivita,
-			Responsabile responsabileCentro)
-	{
-		this.nomeCentro = nomeCentro;
-		this.emailCentro = emailCentro;
-		this.telefonoCentro = telefonoCentro;
-		this.capienzaMaxCentro = capienzaMaxCentro;
-		this.categorieDelCentro = categorieDelCentro;
-		this.attivita = attivita;
-		this.responsabileCentro = responsabileCentro;
-	}
+//	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro,
+//			List<CategoriaAttivita> categorieDelCentro, List<Attivita> attivita,
+//			Responsabile responsabileCentro)
+//	{
+//		this.nomeCentro = nomeCentro;
+//		this.emailCentro = emailCentro;
+//		this.telefonoCentro = telefonoCentro;
+//		this.capienzaMaxCentro = capienzaMaxCentro;
+//		this.categorieDelCentro = categorieDelCentro;
+//		this.attivita = attivita;
+//		this.responsabileCentro = responsabileCentro;
+//	}
 
-	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro)
+	public Centro(String nomeCentro, String emailCentro, String telefonoCentro, Integer capienzaMaxCentro, List<CategoriaAttivita> catAtt)
 	{
 		this.nomeCentro = nomeCentro;
 		this.emailCentro = emailCentro;
 		this.telefonoCentro = telefonoCentro;
 		this.capienzaMaxCentro = capienzaMaxCentro;
+		this.categorieDelCentro = catAtt;
 	}
 	
 	public Centro() 
 	{
 		categorieDelCentro = new ArrayList<>();
-		attivita = new ArrayList<>();
 	}
 
 	public String getNomeCentro() {
@@ -114,13 +114,13 @@ public class Centro
 		this.categorieDelCentro = categorieDelCentro;
 	}
 
-	public List<Attivita> getAttivita() {
-		return attivita;
-	}
-
-	public void setAttivita(List<Attivita> attivita) {
-		this.attivita = attivita;
-	}
+//	public List<Attivita> getAttivita() {
+//		return attivita;
+//	}
+//
+//	public void setAttivita(List<Attivita> attivita) {
+//		this.attivita = attivita;
+//	}
 
 	public Responsabile getResponsabileCentro() {
 		return responsabileCentro;
@@ -136,5 +136,10 @@ public class Centro
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public void addCategoriaAttivita(CategoriaAttivita categoriaAttivita)
+	{
+		this.categorieDelCentro.add(categoriaAttivita);
 	}
 }

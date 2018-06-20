@@ -70,13 +70,16 @@
 								<span th:text="${responsabile.nomeResponsabile}"></span>
 							</td>
 							<td>
+								<span th:text="${responsabile.cognomeResponsabile}"></span>
+							</td>
+							<td>
 								<span th:text="${responsabile.email}"></span>
 							</td>
 							<td>
 								<span th:text="${responsabile.role}"></span>
 							</td>
 							<td>
-								<span th:text="${responsabile.centro}"></span>
+								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span th:text="${responsabile.centro.nomeCentro}"></span></a>
 							</td>
 						</tr>
                     </tbody>
@@ -89,7 +92,7 @@
 
     <!-- Right Panel -->
 
-    <div th:replace = "user/dashboard :: script"></div>
+    <div th:replace = "admin/dashboard :: script"></div>
 
 </body>
 </html>

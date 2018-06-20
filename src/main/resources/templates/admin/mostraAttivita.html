@@ -4,12 +4,12 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]
 <!--[if gt IE 8]><!--> 
 <html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="it"> <!--<![endif]-->
-<head th:replace = "user/dashboard :: head"></head>
+<head th:replace = "admin/dashboard :: head"></head>
 <body>
 
 
         <!-- Left Panel -->
-		<aside th:replace = "user/dashboard :: leftPanel"></aside>
+		<aside th:replace = "admin/dashboard :: leftPanel"></aside>
 	    <!-- Left Panel -->
 
     <!-- Right Panel -->
@@ -17,7 +17,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header th:replace = "user/dashboard :: header"></header>
+        <header th:replace = "admin/dashboard :: header"></header>
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -41,15 +41,47 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                <div class="col-md-12" th:object = "${allievo}")>
+                <div class="col-md-12" th:object = "${attivita}")>
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">
-                            	<span th:text = "${allievo.nome}"></span>
-                            	<span th:text = "${allievo.cognome}"></span>
+                            	<span th:text = "${attivita.nomeAttivita}"></span>
                             </strong>
                         </div>
                         <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Categoria</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+							<td>
+								<span th:text="${attivita.id}"></span>
+							</td>
+							<td>
+								<span th:text="${attivita.nomeAttivita}"></span>
+							</td>
+							<td>
+								<span th:text="${#dates.format(attivita.dataAttivita, 'dd-MM-yyyy')}"></span>
+							</td>
+							<td>
+								<span th:text="${attivita.categoria.nomeCategoriaAttivita}"></span>
+							</td>
+						</tr>
+                    </tbody>
+                  </table>
+                  
+                  
+                  <div class="card-header">
+                            <strong class="card-title">
+                            	Allievi prenotati
+                            </strong>
+                        </div>
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                       <tr>
@@ -63,9 +95,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                    	<tr>
+                    	<tr th:each = "allievo : ${attivita.allievi}">
 							<td>
-								<span th:text="${allievo.id}"></span>
+								<a th:href = "@{'/allievo' + '/' + ${allievo.id}}"><span th:text="${allievo.id}"></span></a>
 							</td>
 							<td>
 								<span th:text="${allievo.nome}"></span>
@@ -84,41 +116,9 @@
 							</td>
 							<td>
 								<span th:text="${allievo.email}"></span>
-							</td>
 						</tr>
                     </tbody>
                   </table>
-                  
-                  <div class="card-header">
-                            <strong class="card-title">Attivita prenotate</strong>
-                        </div>
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Data attivita</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    	<tr th:each="attivita : ${allievo.attivita}">
-							<td>
-								<a th:href = "@{'/attivita' + '/' + ${attivita.id}}"><span th:text="${attivita.id}"></span></a>
-							</td>
-							<td>
-								<span th:text="${attivita.nomeAttivita}"></span>
-							</td>
-							<td>
-								<span th:text="${#dates.format(attivita.dataAttivita, 'dd-MM-yyyy')}"></span>
-							</td>
-						</tr>
-                    </tbody>
-                  </table>
-                        </div>
-                    </div>
-                </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -127,7 +127,7 @@
 
     <!-- Right Panel -->
 
-    <div th:replace = "user/dashboard :: script"></div>
+    <div th:replace = "admin/dashboard :: script"></div>
 
 </body>
 </html>

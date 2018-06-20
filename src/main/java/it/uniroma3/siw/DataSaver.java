@@ -87,10 +87,10 @@ public class DataSaver
 	public void save()
 	{
 		saveAllievi();
-		/*saveCategorieAttivita();
+		saveCategorieAttivita();
 		saveCentri();
 		saveResponsabili();
-		saveAttivita();*/
+		saveAttivita();
 	}
 	
 }

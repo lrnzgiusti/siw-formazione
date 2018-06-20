@@ -16,6 +16,7 @@ import it.uniroma3.siw.controller.validator.AllievoValidator;
 import it.uniroma3.siw.model.Allievo;
 import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.Azienda;
+import it.uniroma3.siw.model.Responsabile;
 import it.uniroma3.siw.service.AllievoService;
 import it.uniroma3.siw.service.AttivitaService;
 
@@ -45,8 +46,14 @@ public class AllievoController {
 	}
 	
 	@RequestMapping(value = "/allievo/{id}", method = RequestMethod.GET)
-	public String getCentro(@PathVariable("id") Long id, Model model) {
+	public String getCentro(@PathVariable("id") Long id, Model model, HttpSession session) {
+		Responsabile resp = (Responsabile)session.getAttribute("responsabileCorrente");
 		model.addAttribute("allievo", this.allievoService.findById(id));
+		
+		if(resp.getRole().contains("ROLE_ADMIN"))
+			return "admin/mostraAllievo";
+		else if(resp.getRole().contains("ROLE_USER"))
+			return "user/mostraAllievo";
 		return "user/mostraAllievo";
 	}
 
@@ -58,7 +65,7 @@ public class AllievoController {
 		if(this.allievoService.alreadyExists(allievo))
 		{
 			model.addAttribute("exist", "L' allievo già esiste");
-			return "formCentro";
+			return "user/formAllievo";
 		}
 		else
 		{
@@ -69,7 +76,7 @@ public class AllievoController {
 				return showAllievi(model);
 			}
 		}
-		return "formAllievo";
+		return "user/formAllievo";
 	}
 
 	@RequestMapping("/showAllievi")

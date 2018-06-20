@@ -25,7 +25,7 @@ public class Responsabile
 	private String email;
 
 	@Column(nullable = false, name = "role")
-	private String role; //un responsabile non e' sempre admin?
+	private String role; 
 	
 	@Column(nullable = false, name = "nome")
 	private String nomeResponsabile;
@@ -33,7 +33,7 @@ public class Responsabile
 	@Column(nullable = false, name = "cognome")	
 	private String cognomeResponsabile;
 	
-	@OneToOne(mappedBy = "responsabileCentro")
+	@OneToOne
 	private Centro centro;
 	
 	public Responsabile()
@@ -50,12 +50,13 @@ public class Responsabile
 	
 	
 	public Responsabile(String username, String password, String email,
-			String nomeResponsabile, String cognomeResponsabile, Centro centro) {
+			String nomeResponsabile, String cognomeResponsabile, String role, Centro centro) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.nomeResponsabile = nomeResponsabile;
 		this.cognomeResponsabile = cognomeResponsabile;
+		this.role = role;
 		this.centro = centro;
 	}
 

@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -29,6 +30,7 @@ public class CategoriaAttivita
 	public CategoriaAttivita(String nomeCategoriaAttivita, String descrizioneAttivita) {
 		this.nomeCategoriaAttivita = nomeCategoriaAttivita;
 		this.descrizioneAttivita = descrizioneAttivita;
+		this.attivita = new ArrayList<>();
 	}
 
 	public CategoriaAttivita() 
@@ -65,6 +67,11 @@ public class CategoriaAttivita
 
 	public void setAttivita(List<Attivita> attivita) {
 		this.attivita = attivita;
+	}
+
+	public void addAttivita(Attivita attivita)
+	{
+		this.attivita.add(attivita);
 	}
 	
 	

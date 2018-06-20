@@ -51,7 +51,7 @@
                             <div class="card-body card-block">
                             	<div class="form-group">
                                     <label class=" form-control-label">Nome</label>
-                                    <small><span th:if="${#fields.hasErrors('nomeAttivita')}" th:errors="*{nomeAttivita}" id = "inputError" ></span></small>
+                                    <small><span th:if="${#fields.hasErrors('nomeAttivita')}" th:errors="*{nomeAttivita}" style = "color:red" id = "inputError" ></span></small>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-male"></i></div>
                                         <input type="text" th:field="*{nomeAttivita}" class="form-control">

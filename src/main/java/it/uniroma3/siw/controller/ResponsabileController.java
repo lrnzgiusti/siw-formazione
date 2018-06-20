@@ -28,5 +28,4 @@ public class ResponsabileController
 		model.addAttribute("responsabile", this.responsabileService.findById(matricolaResponsabile));
 		return "admin/mostraResponsabile";
 	}
-
 }

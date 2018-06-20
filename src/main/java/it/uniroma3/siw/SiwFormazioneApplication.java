@@ -5,10 +5,10 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import it.uniroma3.siw.DataSaver;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class SiwFormazioneApplication {
+public class SiwFormazioneApplication extends SpringBootServletInitializer{
 
 	@Autowired
 	private DataSaver saver;
@@ -25,4 +25,5 @@ public class SiwFormazioneApplication {
 		saver.save();
 		
 	}
+
 }

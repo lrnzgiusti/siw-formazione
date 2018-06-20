@@ -4,12 +4,12 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]
 <!--[if gt IE 8]><!--> 
 <html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="it"> <!--<![endif]-->
-<head th:replace = "user/dashboard :: head"></head>
+<head th:replace = "admin/dashboard :: head"></head>
 <body>
 
 
         <!-- Left Panel -->
-		<aside th:replace = "user/dashboard :: leftPanel"></aside>
+		<aside th:replace = "admin/dashboard :: leftPanel"></aside>
 	    <!-- Left Panel -->
 
     <!-- Right Panel -->
@@ -17,7 +17,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header th:replace = "user/dashboard :: header"></header>
+        <header th:replace = "admin/dashboard :: header"></header>
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -127,7 +127,7 @@
 
     <!-- Right Panel -->
 
-    <div th:replace = "user/dashboard :: script"></div>
+    <div th:replace = "admin/dashboard :: script"></div>
 
 </body>
 </html>

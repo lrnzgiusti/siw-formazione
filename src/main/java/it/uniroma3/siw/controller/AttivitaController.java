@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.siw.controller.validator.AttivitaValidator;
 import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.CategoriaAttivita;
+import it.uniroma3.siw.model.Responsabile;
 import it.uniroma3.siw.service.AttivitaService;
 import it.uniroma3.siw.service.CategoriaAttivitaService;
 
@@ -29,9 +30,15 @@ public class AttivitaController {
 	private AttivitaValidator attivitaValidator;
 	
 	@RequestMapping(value = "/attivita/{id}", method = RequestMethod.GET)
-	public String getCentro(@PathVariable("id") Long id, Model model) {
+	public String getCentro(@PathVariable("id") Long id, Model model, HttpSession session) {
 		model.addAttribute("attivita", this.attivitaService.findById(id));
-		return "mostraAttivita";
+		
+		Responsabile resp = (Responsabile) session.getAttribute("responsabileCorrente");
+		if(resp.getRole().contains("ROLE_ADMIN"))
+			return "admin/mostraAttivita";
+		else if(resp.getRole().contains("ROLE_USER"))
+			return "user/mostraAttivita";
+		return "admin/dashboard";
 	}
 	
 	@RequestMapping(value = "/selezionaCategoria/{id}", method = RequestMethod.GET)

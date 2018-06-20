@@ -55,8 +55,7 @@ public class CentroController
 			if(!bindingResult.hasErrors())
 			{
 				this.centroService.save(centro);
-				Azienda.getInstance().addCentro(centro);
-				return showCentri(model);
+				return "admin/listaCentri";
 			}
 		}
 		return "admin/formCentro";

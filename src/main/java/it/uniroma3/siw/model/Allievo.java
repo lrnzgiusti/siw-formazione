@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class Allievo
 		this.telefono = telefono;
 		this.dataNascita = dataNascita;
 		this.luogoNascita = luogoNascita;
+		this.attivita = new ArrayList<>();
 	}
 	
 	public Allievo()

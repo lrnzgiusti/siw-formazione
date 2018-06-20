@@ -76,7 +76,7 @@
 								<span th:text="${responsabile.role}"></span>
 							</td>
 							<td>
-								<span th:text="${responsabile.centro}"></span>
+								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span th:text="${responsabile.centro.nomeCentro}"></span></a>
 							</td>
 						</tr>
                     </tbody>

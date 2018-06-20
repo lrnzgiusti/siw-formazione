@@ -75,8 +75,11 @@
 							<td>
 								<span th:text="${responsabile.role}"></span>
 							</td>
-							<td>
-								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span th:text="${responsabile.centro.nomeCentro}"></span></a>
+							<td th:if = "${responsabile.centro}">
+								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span  th:text="${responsabile.centro.nomeCentro}"></span></a>
+							</td>
+							<td th:unless = "${responsabile.centro}">
+								<span>Ancora non associato</span>
 							</td>
 						</tr>
                     </tbody>

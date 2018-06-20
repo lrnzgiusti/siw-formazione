@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.controller.validator.ResponsabileValidator;
 import it.uniroma3.siw.model.Responsabile;
+import it.uniroma3.siw.service.AllievoService;
+import it.uniroma3.siw.service.AttivitaService;
+import it.uniroma3.siw.service.CentroService;
 import it.uniroma3.siw.service.ResponsabileService;
 
 @Controller
@@ -24,6 +27,12 @@ public class LoginController
 	private ResponsabileService responsabileService;
 	@Autowired
 	private ResponsabileValidator responsabileValidator;
+	@Autowired
+	private AllievoService allievoService;
+	@Autowired
+	private AttivitaService attivitaService;
+	@Autowired
+	private CentroService centroService;
 	
 	@RequestMapping("/login")
 	public String login(Model model)
@@ -33,8 +42,13 @@ public class LoginController
 	}
 	
 	@RequestMapping("/role")
-	public String role(HttpSession session)
+	public String role(HttpSession session,Model model)
 	{
+		model.addAttribute("allievi", this.allievoService.findAll());
+		model.addAttribute("attivita", this.attivitaService.findAll());
+		model.addAttribute("responsabili", this.responsabileService.findAll());
+		model.addAttribute("centri", this.centroService.findAll());
+		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String role = auth.getAuthorities().toString();
 		Responsabile responsabile = this.responsabileService.findByUsername(auth.getName());

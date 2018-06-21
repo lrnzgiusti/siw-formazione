@@ -95,6 +95,12 @@ public class LoginController
 		return "signUp";
 	}
 	
+	@RequestMapping("/errore403")
+	public String error403()
+	{
+		return "403";
+	}
+	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session)
 	{

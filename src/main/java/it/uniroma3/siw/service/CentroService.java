@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.model.Attivita;
 import it.uniroma3.siw.model.Centro;
+import it.uniroma3.siw.model.Responsabile;
 import it.uniroma3.siw.repository.CentroRepository;
 
 @Transactional
@@ -61,5 +62,10 @@ public class CentroService
 			return true;
 		else 
 			return false;
+	}
+
+	public List<Centro> findByResponsabileIsNull()
+	{
+		return this.centroRepository.findByResponsabileCentroIsNull();
 	}	
 }

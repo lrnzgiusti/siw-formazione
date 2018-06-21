@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.controller.validator.CentroValidator;
 import it.uniroma3.siw.model.Attivita;
-import it.uniroma3.siw.model.Azienda;
 import it.uniroma3.siw.model.Centro;
 import it.uniroma3.siw.service.CentroService;
 
@@ -55,6 +54,7 @@ public class CentroController
 			if(!bindingResult.hasErrors())
 			{
 				this.centroService.save(centro);
+				model.addAttribute("centri", this.centroService.findAll());
 				return "admin/listaCentri";
 			}
 		}
@@ -74,6 +74,15 @@ public class CentroController
 		List<Attivita> attivita = this.centroService.findAllAttivitaById(id);
 		model.addAttribute("attivitaCentro",attivita);
 		return "admin/listaAttivitaCentro";
+	}
+	
+	
+	@RequestMapping("/centriLiberi")
+	public String centriLiberi(Model model)
+	{
+		model.addAttribute("assegna", new String());
+		model.addAttribute("centri", this.centroService.findByResponsabileIsNull());
+		return "admin/listaCentri";
 	}
 
 }

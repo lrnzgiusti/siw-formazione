@@ -56,6 +56,7 @@
                         <th>Email</th>
                         <th>Capienza massima</th>
                         <th>Telefono</th>
+                        <th th:if = "${assegna}">Assegna</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -74,6 +75,9 @@
 							</td>
 							<td>
 								<span th:text="${centro.telefonoCentro}"></span>
+							</td>
+							<td th:if = "${assegna}">
+								<a th:href = "@{'/responsabiliLiberi' + '/' + ${centro.id}}"><button style = "color:black">Assegna</button></a>
 							</td>					
                 		</tr>
                     </tbody>

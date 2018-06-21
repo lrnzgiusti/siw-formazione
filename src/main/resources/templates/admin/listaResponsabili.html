@@ -56,6 +56,7 @@
                         <th>Email</th>
                         <th>Ruolo</th>
                         <th>Centro di appartenenza</th>
+                        <th th:if = "${assegna}">Azioni</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -79,7 +80,10 @@
 								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span  th:text="${responsabile.centro.nomeCentro}"></span></a>
 							</td>
 							<td th:unless = "${responsabile.centro}">
-								<span>Ancora non associato</span>
+								<span>Non ancora assegnato</span>
+							</td>
+							<td th:if = "${assegna}">
+								<a th:href = "@{'/assegna' + '/' + ${responsabile.matricolaResponsabile}}"><button style = "color:black">Assegna</button></a>
 							</td>
 						</tr>
                     </tbody>

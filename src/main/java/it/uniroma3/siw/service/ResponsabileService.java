@@ -65,4 +65,9 @@ public class ResponsabileService
 			return respOpt.get();
 		return null;
 	}
+
+	public List<Responsabile> findByCentroIsNull()
+	{
+		return this.responsabileRepository.findByCentroIsNull();
+	}
 }

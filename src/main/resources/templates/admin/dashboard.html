@@ -79,12 +79,12 @@
                     </li>
                     
                     <h3 class="menu-title">Responsabile</h3><!-- /.menu-title -->
-                    <!-- <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Inserimenti</a>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Assegnazioni</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a th:href="@{/addCategoriaAttivita}">Nuova categoria</a></li>
+                            <li><i class="menu-icon fa fa-fort-awesome"></i><a th:href="@{/centriLiberi}">Assegna centro</a></li>
                         </ul>
-                    </li> -->
+                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Visualizzazioni</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -267,246 +267,7 @@
 			  </div>
 		  </div>
 
-		<div class="col-lg-6">	
-	        <div class="card">
-	            <div class="card-body">
-	                <h4 class="mb-3">Pie Chart</h4>
-	                <div class="flot-container">
-	                    <div id="flot-pie" class="flot-pie-container" style="padding: 0px; position: relative;">
-	                    	<canvas class="flot-base" width="323" height="275" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 323px; height: 275px;"></canvas>
-	                    	<canvas class="flot-overlay" width="323" height="275" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 323px; height: 275px;"></canvas>
-	                    	<div class="legend">
-	                    		<div style="position: absolute; width: 65px; height: 76px; top: 5px; right: 5px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div>
-	                    			<table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454">
-	                    				<tbody>
-	                    					<tr>
-	                    						<td class="legendColorBox">
-	                    							<div style="border:1px solid #ccc;padding:1px">
-	                    								<div style="width:4px;height:0;border:5px solid #8fc9fb;overflow:hidden"></div>
-	                    							</div>
-	                    						</td>
-	                    						<td class="legendLabel">Primary</td>
-	                    					</tr>
-	                    					<tr>
-	                    						<td class="legendColorBox">
-	                    							<div style="border:1px solid #ccc;padding:1px">
-	                    								<div style="width:4px;height:0;border:5px solid #007BFF;overflow:hidden"></div>
-	                    								</div>
-	                    						</td>
-	                    						<td class="legendLabel">Success</td>
-	                    					</tr>
-	                    					<tr>
-	                    						<td class="legendColorBox">
-	                    							<div style="border:1px solid #ccc;padding:1px">
-	                    								<div style="width:4px;height:0;border:5px solid #19A9D5;overflow:hidden"></div>
-	                    							</div>
-	                    						</td>
-	                    						<td class="legendLabel">Danger</td>
-	                    					</tr>
-	                    					<tr>
-	                    						<td class="legendColorBox">
-	                    							<div style="border:1px solid #ccc;padding:1px">
-	                    								<div style="width:4px;height:0;border:5px solid #DC3545;overflow:hidden"></div>
-	                    							</div>
-	                    						</td>
-	                    						<td class="legendLabel">Warning</td>
-	                    					</tr>
-	                    				</tbody>
-	                    			</table>
-	                    		</div>
-	                    	</div>
-	                </div>
-	            </div>
-	        </div><!-- /# card -->
-	    </div>
-
-           <!-- <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-1">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            /.col
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-2">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                            <canvas id="widgetChart2"></canvas>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            /.col
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-3">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                    </div>
-
-                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                            <canvas id="widgetChart3"></canvas>
-                        </div>
-                </div>
-            </div>
-            /.col
-
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-4">
-                    <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
-                        </h4>
-                        <p class="text-light">Members online</p>
-
-                        <div class="chart-wrapper px-3" style="height:70px;" height="70">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            /.col
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box facebook">
-                    <i class="fa fa-facebook"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">40</span> k</strong>
-                            <span>friends</span>
-                        </li>
-                        <li>
-                            <strong><span class="count">450</span></strong>
-                            <span>feeds</span>
-                        </li>
-                    </ul>
-                </div>
-                /social-box
-            </div>/.col
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box twitter">
-                    <i class="fa fa-twitter"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">30</span> k</strong>
-                            <span>friends</span>
-                        </li>
-                        <li>
-                            <strong><span class="count">450</span></strong>
-                            <span>tweets</span>
-                        </li>
-                    </ul>
-                </div>
-                /social-box
-            </div>/.col
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box linkedin">
-                    <i class="fa fa-linkedin"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">40</span> +</strong>
-                            <span>contacts</span>
-                        </li>
-                        <li>
-                            <strong><span class="count">250</span></strong>
-                            <span>feeds</span>
-                        </li>
-                    </ul>
-                </div>
-                /social-box
-            </div>/.col
-
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box google-plus">
-                    <i class="fa fa-google-plus"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">94</span> k</strong>
-                            <span>followers</span>
-                        </li>
-                        <li>
-                            <strong><span class="count">92</span></strong>
-                            <span>circles</span>
-                        </li>
-                    </ul>
-                </div>
-                /social-box
-            </div>/.col
+</div>
 
             <div class="col-xl-6">
                 <div class="card">
@@ -516,7 +277,6 @@
                                 <h4 class="card-title mb-0">Traffic</h4>
                                 <div class="small text-muted">October 2017</div>
                             </div>
-                            /.col
                             <div class="col-sm-8 hidden-sm-down">
                                 <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i class="fa fa-cloud-download"></i></button>
                                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
@@ -532,10 +292,10 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>/.col
+                            </div>
 
 
-                        </div>/.row
+                        </div>
                         <div class="chart-wrapper mt-4" >
                             <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
                         </div>
@@ -582,53 +342,7 @@
                     </div>
                 </div>
             </div>
-
-           
-
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Total Profit</div>
-                                <div class="stat-digit">1,012</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Active Projects</div>
-                                <div class="stat-digit">770</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            
             <div class="col-xl-6">
                 <div class="card" >
                     <div class="card-header">
@@ -638,10 +352,6 @@
                         <div id="vmap" class="vmap" style="height: 265px;"></div>
                     </div>
                 </div>
-                /# card
-            </div> -->
-
-
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
 

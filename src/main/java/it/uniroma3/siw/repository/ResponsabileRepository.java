@@ -16,4 +16,6 @@ public interface ResponsabileRepository extends CrudRepository<Responsabile, Lon
 	public Optional<Responsabile> findByEmail(String email);
 
 	public Optional<Responsabile> findByUsername(String username);
+
+	public List<Responsabile> findByCentroIsNull();
 }

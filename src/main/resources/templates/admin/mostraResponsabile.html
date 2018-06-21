@@ -78,8 +78,11 @@
 							<td>
 								<span th:text="${responsabile.role}"></span>
 							</td>
-							<td>
+							<td th:if = "${responsabile.centro}">
 								<a th:href = "@{'/centro' + '/' + ${responsabile.centro.id}}"><span th:text="${responsabile.centro.nomeCentro}"></span></a>
+							</td>
+							<td th:unless = "${responsabile.centro}">
+								<span>Non ancora assegnato</span>
 							</td>
 						</tr>
                     </tbody>

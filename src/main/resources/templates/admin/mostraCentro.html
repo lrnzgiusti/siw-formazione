@@ -77,8 +77,11 @@
 							<td>
 								<span th:text="${centro.capienzaMaxCentro}"></span>
 							</td>
-							<td>
+							<td th:if = "${centro.responsabileCentro}">
 								<a th:href = "@{'/responsabile' + '/' + ${centro.responsabileCentro.matricolaResponsabile}}"><span th:text="${centro.responsabileCentro.nomeResponsabile}"></span></a>
+							</td>
+							<td th:unless = "${centro.responsabileCentro}">
+								<span>Non ancora assegnato</span>
 							</td>
 						</tr>
                     </tbody>
